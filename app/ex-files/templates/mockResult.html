@@ -1,0 +1,31 @@
+<ion-view title={{pageTitle}}>
+	<ion-content>
+		<div class="ion-content dashboard">
+			<div ng-repeat="mockResult in MockResult.mockResults" class="each-company">
+				<div class="row">
+					<div class="col font-size-18">
+						{{mockResult.date | date : 'd MMM yyyy hh:mm a' }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">No Of Right Answers
+					</div>
+					<div class="col">{{mockResult.rightAnswerCount}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">No Of Right Answers
+					</div>
+					<div class="col">{{mockResult.wrongAnswerCount}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">Total Mark
+					</div>
+					<div class="col">{{mockResult.total}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,18 @@
+<ion-view title={{pageTitle}}>
+	<ion-content>
+		<div class="ion-content dashboard">
+			<div ng-repeat="faq in Faq.faq" class="each-company">
+				<div class="row">
+					<div class="col font-size-18">
+						{{faq.question}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						{{faq.answer}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

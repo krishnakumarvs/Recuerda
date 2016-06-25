@@ -1,0 +1,18 @@
+<ion-view title={{pageTitle}}>
+	<ion-content>
+		<div class="ion-content dashboard">
+			<div ng-repeat="interviewTip in InterviewTips.interviewTips" class="each-company">
+				<div class="row">
+					<div class="col font-size-18">
+						{{interviewTip.tip}}
+					</div>
+				</div>
+				<div class="row" ng-repeat="tip_reference in interviewTip.tip_references">
+					<div class="col">
+						{{tip_reference.reference}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,45 @@
+<ion-view title={{pageTitle}}>
+	<ion-content>
+		<div class="ion-content dashboard">
+			<div class="row">
+				<div class="col">
+				</div>
+				<div class="col-50">
+					<div class="row">
+						<div class="col">
+							<select class="full-width placement-inputs" ng-model="AcadamicDetails.semester">
+								<option>S1S2</option>
+								<option>S3</option>
+								<option>S4</option>
+								<option>S5</option>
+								<option>S6</option>
+								<option>S7</option>
+								<option>S8</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<input type="number" class="full-width placement-inputs" placeholder="Percentage" ng-model="AcadamicDetails.percentage"/>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<input type="number" class="full-width placement-inputs" placeholder="No of Supply" ng-model="AcadamicDetails.supply"/>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col align-center">
+							<button class="placement-button" ng-click="AcadamicDetails.addAcademicDetails()">ADD</button>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
