@@ -27,66 +27,26 @@ ion-nav-view, .pane {
   color: white !important;
 }
 
-.each-company {
-  background-color: rgba(84, 167, 159, 0.43) !important;
-  border: 1px solid #A5C9C9;
-}
-
-.placement-inputs {
-  height: 30px !important;
-  padding-left: 5px !IMPORTANT;
-  border-radius: 4px !important;
-}
-
-.placement-button {
-  background-color: #2C8484;
-    height: 30px;
-    padding: 10px 10px;
-    width: 80px;
-    line-height: 0px;
-    border-radius: 4px;
-    border: none;
-    color: white;
-}
-
 .font-size-18 {
   font-size: 18px;
-}
-
-.send-feedack {
-  padding: 5px;
-    height: 143px;
-    border-radius: 5px;
-    margin: 0px -7px 0px 0px;
-    resize: none !important;
 }
 
 .no-padding {
   padding: 0px !important;
 }
 
-.no-company-text {
-      text-align: center;
-    margin-top: 32px;
-    font-size: 20px;
-    font-family: fantasy;
-}
-
-.each-rule {
-  margin-left: 20px;
-  font-family: cursive;
-  margin-top: 4px;
-}
-
 .extra-margin-top {
   margin-top: 15px;
 }
 
-.each-question {
-  font-size: 18px;
-  font-family: cursive;
-}
 
-.each-answer {
-  font-size: 14px !important;
+/* New styles */
+
+.login-page-title {
+  background-color: rgba(255, 0, 0, 0.25);
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 22px;
+  font-family: cursive;
 }
