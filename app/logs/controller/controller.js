@@ -13,7 +13,7 @@
     Logs.$inject = ['$state'];
 
     function Logs($state) {
-        var loginVm = this;
+        var logsVm = this;
         
         /*loginVm.reg_num = "234";
         loginVm.password = "123"
