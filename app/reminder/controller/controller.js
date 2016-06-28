@@ -5,16 +5,44 @@
      * Get the main module (shared for Workout).
      */
     angular.module(appName)
-    /**
-     * Login Controller.
-     */
-    .controller('ReminderController', Reminder);
+        /**
+         * Login Controller.
+         */
+        .controller('ReminderController', Reminder);
 
     Reminder.$inject = ['$state'];
 
     function Reminder($state) {
         var reminderVm = this;
-        
+
+
+        var reminder = [{
+                name: "Buy apple",
+                date: "today "
+
+            },
+
+            {
+                name: "book flight tckt",
+                date: "today evening"
+            }, {
+                name: "Get job",
+                date: "tomorrow"
+
+
+            }, 
+            {
+                name: "Marriage function",
+                date: "last sunday"
+
+            }, {
+                name: "Class meeting",
+                date: "6.07.2016"
+
+            }
+        ];
+        reminderVm.reminder = reminder;
+
         /*loginVm.reg_num = "234";
         loginVm.password = "123"
 
