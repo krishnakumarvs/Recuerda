@@ -34,34 +34,15 @@
             date: "6.07.2016"
 
         }];
+
         tasksVm.tasks = tasks;
+        
+    
+        function addTask(){
+            $state.go('header.addtask');
+        }
 
-        /*loginVm.reg_num = "234";
-        loginVm.password = "123"
+        tasksVm.addTask=addTask;
 
-        loginVm.authenticateUser = authenticateUser;
-        activate();*/
-
-        /*function activate() {
-            APIServices.getStudentProfile().then(function(response) {
-                console.log(response);
-                if (response) {
-                    $state.go("header.dashboard");
-                }
-            });
-        }*/
-
-        /*function authenticateUser() {
-            APIServices.login(loginVm.reg_num, loginVm.password).then(function(result) {
-                if (result == "password_wrong") {
-                    alert("Password is wrong");
-                } else if (result == "no_such_reg_num") {
-                    alert("No such register number")
-                } else {
-                    $state.go("header.dashboard");
-                }
-            });
-        }*/
-    }
-
+}
 })();
