@@ -98,7 +98,14 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         templateUrl: "app/settings/templates/settings.html",
         controller: 'SettingsController as Settings',
         title: 'Settings'
-    });
+    })
+       .state('reminder', {
+        url: "/reminder",
+        templateUrl: "app/reminder/templates/reminder.html",
+        controller: 'RemiderController as Reminder',
+        title: 'Reminder'
+    })
+   ;
 
     //mockResult
 
