@@ -13,49 +13,36 @@
 			<div class="header-side-menu-scroll"  side-menu-height>
 				<ion-item nav-clear menu-close href="index.html#/dashboard" class="no-padding">
 					<!-- <div class="icon-circle"> <img class="side-menu-icons" ng-src="img/icons/{{items.icon}}.png"></div><span>one</span>  -->
-					<div class="placement-slide-menu">Home</div>					
+					<div class="recuerda-slide-menu">Username
+
+					</div>					
+				</ion-item>
+
+				<ion-item nav-clear menu-close href="index.html#/tasks" class="no-padding" >
+					<div class="recuerda-slide-menu"ng-click="Header.goToPage(1)">My Tasks</div>					
+				</ion-item>
+
+				<ion-item nav-clear menu-close href="index.html#/reminder" class="no-padding">
+					<div class="recuerda-slide-menu"ng-click="Header.goToPage(2)">Reminders</div>
 				</ion-item>
 
 				<ion-item nav-clear menu-close href="index.html#/profile" class="no-padding">
-					<div class="placement-slide-menu">Profile</div>					
+					<div class="recuerda-slide-menu" ng-click="Header.goToPage(3)">Profile</div>
 				</ion-item>
 
-				<ion-item nav-clear menu-close href="index.html#/acadamicdetails" class="no-padding">
-					<div class="placement-slide-menu">Academic details</div>
+				<ion-item nav-clear menu-close href="index.html#/reminder" class="no-padding">
+					<div class="recuerda-slide-menu" ng-click="Header.goToPage(4)">Settings</div>
 				</ion-item>
 
-				<ion-item nav-clear menu-close href="index.html#/changePassword" class="no-padding">
-					<div class="placement-slide-menu">Change Password</div>
+				<ion-item nav-clear menu-close href="index.html#/logs" class="no-padding">
+					<div class="recuerda-slide-menu" ng-click="Header.goToPage(5)">Logs</div>
 				</ion-item>
 
-				<ion-item nav-clear menu-close href="index.html#/interviewTips" class="no-padding">
-					<div class="placement-slide-menu">Interview Tips</div>
+				<ion-item nav-clear menu-close href="index.html#/login" class="no-padding">
+					<div class="recuerda-slide-menu" ng-click="Header.goToPage(6)">Logout</div>
 				</ion-item>
 
-				<ion-item nav-clear menu-close href="index.html#/mockTest" class="no-padding">
-					<div class="placement-slide-menu">Mock Test</div>
-				</ion-item>
-
-				<ion-item nav-clear menu-close href="index.html#/mockResult" class="no-padding">
-					<div class="placement-slide-menu">Mock Scores</div>
-				</ion-item>
-
-				<ion-item nav-clear menu-close href="index.html#/faq" class="no-padding">
-					<div class="placement-slide-menu">FAQ</div>
-				</ion-item>
-
-				<ion-item nav-clear menu-close href="index.html#/feedBack" class="no-padding">
-					<div class="placement-slide-menu">Feedback</div>
-				</ion-item>
-
-				<ion-item nav-clear menu-close href="index.html#/notification" class="no-padding">
-					<div class="placement-slide-menu">Notifications</div>
-				</ion-item>
-
-				<ion-item nav-clear menu-close href="" class="no-padding">
-					<div class="placement-slide-menu" ng-click="Logout.logoutNow()">Logout</div>
-				</ion-item>
-
+				
 				<!-- <ion-item nav-clear menu-close ng-click="Header.logout()" class="padding-10">
 					<div class="icon-circle no-margin-right"> <img class="side-menu-icons" ng-src="img/icons/logout-icon.png"></div><span class="logout-icon" translate="LOGOUT.PAGE_TITLE"></span> 
 				</ion-item> -->
