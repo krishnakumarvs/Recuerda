@@ -4,12 +4,12 @@
 			
 
 			<div class="row">
-			  <div class="col"></div>
-			  <div class="col ">
-			  <button ng-click="Logs.reminderClicked()">Reminder</button>
-			  <button ng-click="Logs.tasksClicked()">Tasks</button>
+			  <div class="col-20"></div>
+			  <div class="col align-center ">
+			  <button class="button  button-positive" ng-click="Logs.reminderClicked()">Reminder</button>
+			  <button class="button  button-positive" ng-click="Logs.tasksClicked()">Tasks</button>
 			  </div>
-			  <div class="col"></div>
+			  <div class="col-20"></div>
 			</div>
 
             
@@ -18,9 +18,9 @@
     				<li class="item">
     					<div class="row">
 
-      						<div class="col-33">{{item.name}}</div>
-      						<div class="col-33">{{item.date}}</div>
-      						<div class="col-33">{{item.status}}</div>
+      						<div class="col-33 align-left">{{item.name}}</div>
+      						<div class="col-33 align-center">{{item.date}}</div>
+      						<div class="col-33 align-right">{{item.status}}</div>
       					</div>
    				 	</li>
 				</ul>
