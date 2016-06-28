@@ -46,7 +46,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
     .state('header', {
         url: "/",
         templateUrl: "app/shared/templates/header.html",
-        /*controller: 'HeaderController as Header',*/
+        controller: 'HeaderController as Header',
         title: 'Header'
     })
 
@@ -67,8 +67,6 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
     .state('header.tasks', {
         url: "tasks",
         title: 'Tasks',
-        parent: 'header',
-        showHeader: true,
         views: {
             'menuContent': {
                 templateUrl: "app/tasks/templates/tasks.html",
