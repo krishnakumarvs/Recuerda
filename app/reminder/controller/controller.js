@@ -8,12 +8,12 @@
     /**
      * Login Controller.
      */
-    .controller('TasksController', Login);
+    .controller('ReminderController', Reminder);
 
-    Login.$inject = ['$state'];
+    Reminder.$inject = ['$state'];
 
-    function Login($state) {
-        var loginVm = this;
+    function Reminder($state) {
+        var reminderVm = this;
         
         /*loginVm.reg_num = "234";
         loginVm.password = "123"
