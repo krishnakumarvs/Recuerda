@@ -8,7 +8,7 @@
         /**
          * Login Controller.
          */
-        .controller('ReminderController', Reminder);
+        .controller('ReminderController',Reminder);
 
     Reminder.$inject = ['$state'];
 
@@ -23,17 +23,9 @@
             },
 
             {
-                name: "book flight tckt",
-                date: "today evening"
-            }, {
                 name: "Get job",
                 date: "tomorrow"
 
-
-            }, 
-            {
-                name: "Marriage function",
-                date: "last sunday"
 
             }, {
                 name: "Class meeting",
@@ -42,6 +34,12 @@
             }
         ];
         reminderVm.reminder = reminder;
+        function addReminder(){
+            alert("1")
+             $state.go('header.addreminder')
+        }
+        reminderVm.addReminder=addReminder;
+
 
         /*loginVm.reg_num = "234";
         loginVm.password = "123"
