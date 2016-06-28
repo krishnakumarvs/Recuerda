@@ -17,6 +17,9 @@
     function Logs($state) {
         var logsVm = this;
         logsVm.allItems=reminder;
+        logsVm.reminderClicked=reminderClicked;
+        logsVm.tasksClicked=tasksClicked;
+
         var reminder  = [
         {
             name : "gfh",
@@ -36,18 +39,18 @@
         ];
         var tasks= [
         {
-            name : "gfh",
+            name : "ada",
             date : "123",
             status: "done"
         }
         ];
 
         logsVm.allItems=reminder;
-        function remind(){
+        function reminderClicked(){
             logsVm.allItems=reminder;
         }
-        function task(){
-            logsVm.allItems=task;
+        function tasksClicked(){
+            logsVm.allItems=tasks;
         }
         
         /*loginVm.reg_num = "234";
