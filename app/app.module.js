@@ -79,7 +79,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         views: {
             'menuContent': {
                 templateUrl: "app/tasks/templates/tasks.html",
-                controller: 'TasksController as Tasks'
+                controller: 'TaskPageController as Tasks'
             }
         }
     })
