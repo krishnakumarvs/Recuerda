@@ -16,9 +16,7 @@
         var loginVm = this;
         loginVm.funn=funn;
         function funn(){
-            alert("hi");
-             $state.go("signup");
-
+             $state.go('header.tasks');
         }
                
         /*loginVm.reg_num = "234";

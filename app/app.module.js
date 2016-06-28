@@ -8,7 +8,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
     $rootScope.$state = $state;
 
     $ionicPlatform.ready(function() {
-        
+
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
@@ -57,55 +57,60 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         title: 'Login'
     })
 
-    .state('logs', {
-        url: "/logs",
+    .state('header.logs', {
+        url: "logs",
         templateUrl: "app/logs/templates/logs.html",
         controller: 'LogsController as Logs',
         title: 'Logs'
     })
-    
-    .state('tasks', {
-        url: "/tasks",
-        templateUrl: "app/tasks/templates/tasks.html",
-        controller: 'TasksController as Tasks',
-        title: 'Tasks'
+
+    .state('header.tasks', {
+        url: "tasks",
+        title: 'Tasks',
+        parent: 'header',
+        showHeader: true,
+        views: {
+            'menuContent': {
+                templateUrl: "app/tasks/templates/tasks.html",
+                controller: 'TasksController as Tasks'
+            }
+        }
     })
 
-    .state('addtask', {
-        url: "/addtask",
+    .state('header.addtask', {
+        url: "addtask",
         templateUrl: "app/addtask/templates/addtask.html",
         controller: 'AddtaskController as Addtask',
         title: 'AddTask'
     })
 
-     .state('addreminder', {
+    .state('header.addreminder', {
         url: "/addreminder",
         templateUrl: "app/addreminder/templates/addreminder.html",
         controller: 'AddreminderController as Addreminder',
         title: 'Addreminder'
     })
-     
 
-    .state('registration', {
-        url: "/registration",
+
+    .state('header.registration', {
+        url: "registration",
         templateUrl: "app/registration/templates/registration.html",
         controller: 'RegistrationController as Registration',
         title: 'Registration'
     })
-    
-      .state('settings', {
-        url: "/settings",
+
+    .state('header.settings', {
+        url: "settings",
         templateUrl: "app/settings/templates/settings.html",
         controller: 'SettingsController as Settings',
         title: 'Settings'
     })
-       .state('reminder', {
-        url: "/reminder",
-        templateUrl: "app/reminder/templates/reminder.html",
-        controller: 'RemiderController as Reminder',
-        title: 'Reminder'
-    })
-   ;
+        .state('header.reminder', {
+            url: "reminder",
+            templateUrl: "app/reminder/templates/reminder.html",
+            controller: 'RemiderController as Reminder',
+            title: 'Reminder'
+        });
 
     //mockResult
 
