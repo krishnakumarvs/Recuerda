@@ -59,9 +59,18 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
 
     .state('header.logs', {
         url: "logs",
-        templateUrl: "app/logs/templates/logs.html",
-        controller: 'LogsController as Logs',
-        title: 'Logs'
+        parent: 'header',
+        showHeader: true,
+        title: 'Logs',
+         views: {
+            'menuContent': {
+            templateUrl: "app/logs/templates/logs.html",
+            controller: 'LogsController as Logs'
+        }
+    }
+             
+
+        
     })
 
     .state('header.tasks', {
@@ -79,38 +88,86 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
 
     .state('header.addtask', {
         url: "addtask",
-        templateUrl: "app/addtask/templates/addtask.html",
-        controller: 'AddtaskController as Addtask',
-        title: 'AddTask'
+        parent: 'header',
+        showHeader: true,
+         title: 'AddTask',
+          views: {
+            'menuContent': {
+          templateUrl: "app/addtask/templates/addtask.html",
+            controller: 'AddtaskController as Addtask'
+    }
+}
+       
     })
 
     .state('header.addreminder', {
         url: "/addreminder",
+        parent: 'header',
+        showHeader: true,
+         title: 'Addreminder',
+          views: {
+            'menuContent': {
         templateUrl: "app/addreminder/templates/addreminder.html",
-        controller: 'AddreminderController as Addreminder',
-        title: 'Addreminder'
+        controller: 'AddreminderController as Addreminder'
+    }
+}
+       
     })
 
 
     .state('header.registration', {
         url: "registration",
+        parent: 'header',
+        showHeader: true,
+         title: 'Registration',
+          views: {
+            'menuContent': {
         templateUrl: "app/registration/templates/registration.html",
-        controller: 'RegistrationController as Registration',
-        title: 'Registration'
+        controller: 'RegistrationController as Registration'
+    }
+}
+       
     })
 
     .state('header.settings', {
         url: "settings",
+        parent: 'header',
+        showHeader: true,
+         title: 'Settings',
+          views: {
+            'menuContent': {
         templateUrl: "app/settings/templates/settings.html",
-        controller: 'SettingsController as Settings',
-        title: 'Settings'
+        controller: 'SettingsController as Settings'
+    }
+}
+       
     })
         .state('header.reminder', {
             url: "reminder",
+            parent: 'header',
+            showHeader: true,
+            title: 'Reminder',
+             views: {
+            'menuContent': {
             templateUrl: "app/reminder/templates/reminder.html",
-            controller: 'RemiderController as Reminder',
-            title: 'Reminder'
-        });
+            controller: 'RemiderController as Reminder'
+        }
+    }
+            
+    })
+
+        .state('header.profile', {
+        url: "profile",
+        title: 'Profile',
+        parent: 'header',
+        showHeader: true,
+        views: {
+            'menuContent': {
+                templateUrl: "app/profile/templates/profile.html",
+                controller: 'ProfileController as Profile'
+            }
+        }
+    });
 
     //mockResult
 
