@@ -8,12 +8,12 @@
     /**
      * Login Controller.
      */
-    .controller('AddtaskController', Addtask);
+    .controller('AddtaskController',Addtask);
 
-    AddTask.$inject = ['$state'];
+    Addtask.$inject = ['$state'];
 
-    function AddTask($state) {
-        var loginVm = this;
+    function Addtask($state) {
+        //var loginVm = this;
        /* loginVm.funn=funn;
         function funn(){
             alert("hi");
