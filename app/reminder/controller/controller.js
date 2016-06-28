@@ -35,7 +35,7 @@
         ];
         reminderVm.reminder = reminder;
         function addReminder(){
-            alert("1")
+            
              $state.go('header.addreminder')
         }
         reminderVm.addReminder=addReminder;
