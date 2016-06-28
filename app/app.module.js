@@ -69,6 +69,13 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         templateUrl: "app/tasks/templates/tasks.html",
         controller: 'TasksController as Tasks',
         title: 'Tasks'
+    })
+
+    .state('registration', {
+        url: "/registration",
+        templateUrl: "app/registration/templates/registration.html",
+        controller: 'RegistrationController as Registration',
+        title: 'Registration'
     });
 
     //mockResult
