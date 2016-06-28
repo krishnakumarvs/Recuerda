@@ -71,6 +71,13 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         title: 'Tasks'
     })
 
+    .state('addtask', {
+        url: "/addtask",
+        templateUrl: "app/addtask/templates/addtask.html",
+        controller: 'AddtaskController as addTask',
+        title: 'AddTask'
+    })
+
     .state('registration', {
         url: "/registration",
         templateUrl: "app/registration/templates/registration.html",

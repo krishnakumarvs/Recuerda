@@ -8,16 +8,16 @@
     /**
      * Login Controller.
      */
-    .controller('LoginController', Login);
+    .controller('AddtaskController', Addtask);
 
-    Login.$inject = ['$state'];
+    AddTask.$inject = ['$state'];
 
-    function Login($state) {
+    function AddTask($state) {
         var loginVm = this;
-        loginVm.funn=funn;
+       /* loginVm.funn=funn;
         function funn(){
             alert("hi");
-             $state.go("signup");
+             $state.go("signup");*/
 
         }
                
@@ -47,6 +47,5 @@
                 }
             });
         }*/
-    }
 
 })();
