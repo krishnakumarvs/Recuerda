@@ -148,7 +148,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
              views: {
             'menuContent': {
             templateUrl: "app/reminder/templates/reminder.html",
-            controller: 'RemiderController as Reminder'
+            controller: 'ReminderController as Reminder'
         }
     }
             
