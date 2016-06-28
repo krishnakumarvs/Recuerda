@@ -43,7 +43,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
 
     // setup an abstract state for the tabs directive
 
-    .state('header', {
+        .state('header', {
         url: "/",
         templateUrl: "app/shared/templates/header.html",
         controller: 'HeaderController as Header',
@@ -62,15 +62,15 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         parent: 'header',
         showHeader: true,
         title: 'Logs',
-         views: {
+        views: {
             'menuContent': {
-            templateUrl: "app/logs/templates/logs.html",
-            controller: 'LogsController as Logs'
+                templateUrl: "app/logs/templates/logs.html",
+                controller: 'LogsController as Logs'
+            }
         }
-    }
-             
 
-        
+
+
     })
 
     .state('header.tasks', {
@@ -88,28 +88,28 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         url: "addtask",
         parent: 'header',
         showHeader: true,
-         title: 'AddTask',
-          views: {
+        title: 'AddTask',
+        views: {
             'menuContent': {
-          templateUrl: "app/addtask/templates/addtask.html",
-            controller: 'AddtaskController as Addtask'
-    }
-}
-       
+                templateUrl: "app/addtask/templates/addtask.html",
+                controller: 'AddtaskController as Addtask'
+            }
+        }
+
     })
 
     .state('header.addreminder', {
         url: "/addreminder",
         parent: 'header',
         showHeader: true,
-         title: 'Addreminder',
-          views: {
+        title: 'Addreminder',
+        views: {
             'menuContent': {
-        templateUrl: "app/addreminder/templates/addreminder.html",
-        controller: 'AddreminderController as Addreminder'
-    }
-}
-       
+                templateUrl: "app/addreminder/templates/addreminder.html",
+                controller: 'AddreminderController as Addreminder'
+            }
+        }
+
     })
 
 
@@ -117,44 +117,44 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         url: "registration",
         parent: 'header',
         showHeader: true,
-         title: 'Registration',
-          views: {
+        title: 'Registration',
+        views: {
             'menuContent': {
-        templateUrl: "app/registration/templates/registration.html",
-        controller: 'RegistrationController as Registration'
-    }
-}
-       
+                templateUrl: "app/registration/templates/registration.html",
+                controller: 'RegistrationController as Registration'
+            }
+        }
+
     })
 
     .state('header.settings', {
-        url: "settings",
-        parent: 'header',
-        showHeader: true,
-         title: 'Settings',
-          views: {
-            'menuContent': {
-        templateUrl: "app/settings/templates/settings.html",
-        controller: 'SettingsController as Settings'
-    }
-}
-       
-    })
+            url: "settings",
+            parent: 'header',
+            showHeader: true,
+            title: 'Settings',
+            views: {
+                'menuContent': {
+                    templateUrl: "app/settings/templates/settings.html",
+                    controller: 'SettingsController as Settings'
+                }
+            }
+
+        })
         .state('header.reminder', {
             url: "reminder",
             parent: 'header',
             showHeader: true,
             title: 'Reminder',
-             views: {
-            'menuContent': {
-            templateUrl: "app/reminder/templates/reminder.html",
-            controller: 'ReminderController as Reminder'
-        }
-    }
-            
-    })
+            views: {
+                'menuContent': {
+                    templateUrl: "app/reminder/templates/reminder.html",
+                    controller: 'ReminderController as Reminder'
+                }
+            }
 
-        .state('header.profile', {
+        })
+
+    .state('header.profile', {
         url: "profile",
         title: 'Profile',
         parent: 'header',

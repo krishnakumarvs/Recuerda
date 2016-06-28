@@ -6,13 +6,14 @@
      */
     angular.module(appName)
     /**
-     * Login Controller.
+     * AddReminder Controller.
      */
     .controller('AddreminderController',Addreminder);
 
     Addreminder.$inject = ['$state'];
 
     function Addreminder($state) {
+        
         //var loginVm = this;
        /* loginVm.funn=funn;
         function funn(){
