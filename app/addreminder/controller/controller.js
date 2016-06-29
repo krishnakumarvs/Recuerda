@@ -5,48 +5,48 @@
      * Get the main module (shared for Workout).
      */
     angular.module(appName)
-    /**
-     * AddReminder Controller.
-     */
-    .controller('AddreminderController',Addreminder);
+        /**
+         * AddReminder Controller.
+         */
+        .controller('AddReminderController', AddReminder);
 
-    Addreminder.$inject = ['$state'];
+    AddReminder.$inject = ['$state'];
 
-    function Addreminder($state) {
-        
+    function AddReminder($state) {
+
         //var loginVm = this;
-       /* loginVm.funn=funn;
-        function funn(){
-            alert("hi");
-             $state.go("signup");*/
+        /* loginVm.funn=funn;
+         function funn(){
+             alert("hi");
+              $state.go("signup");*/
 
-        }
-               
-        /*loginVm.reg_num = "234";
-        loginVm.password = "123"
+    }
 
-        loginVm.authenticateUser = authenticateUser;
-        activate();*/
+    /*loginVm.reg_num = "234";
+    loginVm.password = "123"
 
-        /*function activate() {
-            APIServices.getStudentProfile().then(function(response) {
-                console.log(response);
-                if (response) {
-                    $state.go("header.dashboard");
-                }
-            });
-        }*/
+    loginVm.authenticateUser = authenticateUser;
+    activate();*/
 
-        /*function authenticateUser() {
-            APIServices.login(loginVm.reg_num, loginVm.password).then(function(result) {
-                if (result == "password_wrong") {
-                    alert("Password is wrong");
-                } else if (result == "no_such_reg_num") {
-                    alert("No such register number")
-                } else {
-                    $state.go("header.dashboard");
-                }
-            });
-        }*/
+    /*function activate() {
+        APIServices.getStudentProfile().then(function(response) {
+            console.log(response);
+            if (response) {
+                $state.go("header.dashboard");
+            }
+        });
+    }*/
+
+    /*function authenticateUser() {
+        APIServices.login(loginVm.reg_num, loginVm.password).then(function(result) {
+            if (result == "password_wrong") {
+                alert("Password is wrong");
+            } else if (result == "no_such_reg_num") {
+                alert("No such register number")
+            } else {
+                $state.go("header.dashboard");
+            }
+        });
+    }*/
 
 })();

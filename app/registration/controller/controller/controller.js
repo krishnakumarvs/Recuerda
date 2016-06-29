@@ -5,23 +5,23 @@
      * Get the main module (shared for Workout).
      */
     angular.module(appName)
-    /**
-     * REgisytration Controller.
-     */
-    .controller('RegistrationController', Registration);
+        /**
+         * REgisytration Controller.
+         */
+        .controller('RegistrationController', Registration);
 
     Registration.$inject = ['$state'];
 
     function Registration($state) {
         var registrationVm = this;
-        registrationVm.SubmitClick=SubmitClick;
-        function SubmitClick(){
+        registrationVm.SubmitClick = SubmitClick;
+
+        function SubmitClick() {
             $state.go('header.profile');
         }
 
-        
 
-        
+
         /*loginVm.reg_num = "234";
         loginVm.password = "123"
 

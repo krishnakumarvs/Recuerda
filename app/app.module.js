@@ -106,7 +106,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         views: {
             'menuContent': {
                 templateUrl: "app/addreminder/templates/addreminder.html",
-                controller: 'AddreminderController as Addreminder'
+                controller: 'AddReminderController as AddReminder'
             }
         }
 
@@ -117,7 +117,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         url: "/registration",
         templateUrl: "app/registration/templates/registration.html",
         controller: 'RegistrationController as Registration',
-         title: 'Registration'
+        title: 'Registration'
 
     })
 
@@ -161,7 +161,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         }
     })
 
-     .state('header.viewtask', {
+    .state('header.viewtask', {
         url: "viewtask",
         title: 'Viewtask',
         parent: 'header',
@@ -174,7 +174,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         }
     })
 
-      .state('header.viewreminder', {
+    .state('header.viewreminder', {
         url: "viewreminder",
         title: 'viewreminder',
         parent: 'header',

@@ -8,7 +8,7 @@
         /**
          * Login Controller.
          */
-        .controller('ReminderController',Reminder);
+        .controller('ReminderController', Reminder);
 
     Reminder.$inject = ['$state'];
 
@@ -34,11 +34,12 @@
             }
         ];
         reminderVm.reminder = reminder;
-        function addReminder(){
-            
-             $state.go('header.addreminder')
+
+        function addReminder() {
+
+            $state.go('header.addreminder')
         }
-        reminderVm.addReminder=addReminder;
+        reminderVm.addReminder = addReminder;
 
 
         /*loginVm.reg_num = "234";
