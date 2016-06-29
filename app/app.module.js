@@ -99,7 +99,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
     })
 
     .state('header.addreminder', {
-        url: "/addreminder",
+        url: "addreminder",
         parent: 'header',
         showHeader: true,
         title: 'Addreminder',
