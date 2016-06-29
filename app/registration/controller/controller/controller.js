@@ -6,14 +6,18 @@
      */
     angular.module(appName)
     /**
-     * Login Controller.
+     * REgisytration Controller.
      */
     .controller('RegistrationController', Registration);
 
     Registration.$inject = ['$state'];
 
     function Registration($state) {
-        var loginVm = this;
+        var registrationVm = this;
+        registrationVm.SubmitClick=SubmitClick;
+        function SubmitClick(){
+            $state.go('header.profile');
+        }
 
         
 
