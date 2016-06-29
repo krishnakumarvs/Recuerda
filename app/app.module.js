@@ -113,17 +113,11 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
     })
 
 
-    .state('header.registration', {
-        url: "registration",
-        parent: 'header',
-        showHeader: true,
-        title: 'Registration',
-        views: {
-            'menuContent': {
-                templateUrl: "app/registration/templates/registration.html",
-                controller: 'RegistrationController as Registration'
-            }
-        }
+    .state('registration', {
+        url: "/registration",
+        templateUrl: "app/registration/templates/registration.html",
+        controller: 'RegistrationController as Registration',
+         title: 'Registration'
 
     })
 

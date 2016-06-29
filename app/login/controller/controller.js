@@ -14,9 +14,14 @@
 
     function Login($state) {
         var loginVm = this;
-        loginVm.funn=funn;
-        function funn(){
+        loginVm.LoginFun=LoginFun;
+        loginVm.SignUp=SignUp;
+        function LoginFun(){
              $state.go('header.tasks');
+        }
+        function SignUp(){
+
+            $state.go('registration');
         }
                
         /*loginVm.reg_num = "234";
