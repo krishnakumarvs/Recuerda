@@ -1,3 +1,10 @@
 button.button.button-royal.margin-align {
     margin-top: 55px;
 }
+.margin-top-55{
+
+	margin-top: 50px;
+	font-size: 30px;
+    color: wheat;
+    margin-bottom: 30px;
+}
