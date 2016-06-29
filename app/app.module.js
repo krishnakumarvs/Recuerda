@@ -165,6 +165,19 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
                 controller: 'ProfileController as Profile'
             }
         }
+    })
+
+     .state('header.viewtask', {
+        url: "viewtask",
+        title: 'Viewtask',
+        parent: 'header',
+        showHeader: true,
+        views: {
+            'menuContent': {
+                templateUrl: "app/viewtask/templates/viewtask.html",
+                controller: 'ViewTaskController as ViewTask'
+            }
+        }
     });
 
     //mockResult
