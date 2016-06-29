@@ -178,6 +178,19 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
                 controller: 'ViewTaskController as ViewTask'
             }
         }
+    })
+
+      .state('header.viewreminder', {
+        url: "viewreminder",
+        title: 'viewreminder',
+        parent: 'header',
+        showHeader: true,
+        views: {
+            'menuContent': {
+                templateUrl: "app/viewreminder/templates/viewreminder.html",
+                controller: 'ViewReminderController as ViewReminder'
+            }
+        }
     });
 
     //mockResult
