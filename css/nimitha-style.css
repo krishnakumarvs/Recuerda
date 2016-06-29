@@ -6,3 +6,11 @@
     font-family: cursive;
     border-radius: 99px;
 }
+.row .reminderrow{
+	 background-color: rgba(236, 0, 255, 0.39);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    font-family: cursive;
+    border-radius: 99px;
+}
