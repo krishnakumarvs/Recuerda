@@ -1,0 +1,28 @@
+<ion-view title={{pageTitle}}>
+	<ion-content class="tasks-page">
+		<div class="ion-content">
+			<!--  <div class="row">
+			  <div class="col"></div>
+			  <div class="col tasks-page-title">TASKS</div>
+			  <div class="col"></div>
+			</div>-->
+			  
+				<ul class="list" >
+            		<li class="item" ng-repeat="item in Tasks.tasks"> 
+		            	<div class="row">
+		            		<div class="col-50">{{item.name}}</div>
+		            		<div class="col-50">{{item.date}}</div>
+		            	</div>
+            	     </li>
+                </ul>
+         	     <div class="row"></div>
+         	        <div class="col-50">{{item.date}}</div> 
+         	     <div class="row">
+         		     <div class="col align-center">
+         			<button class="button button-large button-positive" ng-click="Tasks.addTask()" ng-init="count=0"> NEW
+         			</button> 
+         		</div>
+         	</div>
+	 	 </div>
+	</ion-content>
+</ion-view>
