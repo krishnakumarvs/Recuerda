@@ -43,6 +43,11 @@
         }
 
         tasksVm.addTask=addTask;
+        function GotoViewTask(){
+            $state.go('header.viewtask')
+        }
+        tasksVm.GotoViewTask = GotoViewTask;
+
 
 }
 })();
