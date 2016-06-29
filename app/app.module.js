@@ -75,7 +75,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
 
     .state('header.tasks', {
         url: "tasks",
-        title: 'Tasks',
+        title: 'My Tasks',
         views: {
             'menuContent': {
                 templateUrl: "app/tasks/templates/tasks.html",
@@ -88,7 +88,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         url: "addtask",
         parent: 'header',
         showHeader: true,
-        title: 'AddTask',
+        title: 'Add Your Task',
         views: {
             'menuContent': {
                 templateUrl: "app/addtask/templates/addtask.html",
@@ -102,7 +102,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
         url: "addreminder",
         parent: 'header',
         showHeader: true,
-        title: 'Addreminder',
+        title: 'Add Reminder',
         views: {
             'menuContent': {
                 templateUrl: "app/addreminder/templates/addreminder.html",
@@ -163,7 +163,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
 
     .state('header.viewtask', {
         url: "viewtask",
-        title: 'Viewtask',
+        title: 'View Task',
         parent: 'header',
         showHeader: true,
         views: {
@@ -176,7 +176,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
 
     .state('header.viewreminder', {
         url: "viewreminder",
-        title: 'viewreminder',
+        title: 'Reminder',
         parent: 'header',
         showHeader: true,
         views: {
