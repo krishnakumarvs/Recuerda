@@ -52,3 +52,13 @@ ion-nav-view, .pane {
   font-size: 22px;
   font-family: cursive;
 }
+
+.default-priority {
+  opacity: 0.5;
+  color: black;
+}
+.highlight-priority {
+    color: lime !important;
+    opacity: 1 !important;
+    font-size: 20px !important;
+}

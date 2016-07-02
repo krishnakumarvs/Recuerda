@@ -8,35 +8,41 @@
     /**
      * Login Controller.
      */
-    .controller('AddtaskController',Addtask);
+    .controller('AddtaskController', Addtask);
 
-    Addtask.$inject = ['$state'];
+    Addtask.$inject = ['$state', '$filter'];
 
-    function Addtask($state) {
-        //var loginVm = this;
-       /* loginVm.funn=funn;
-        function funn(){
-            alert("hi");
-             $state.go("signup");*/
+    function Addtask($state, $filter) {
+        var addTaskVm = this;
 
+        addTaskVm.priorityChanged = priorityChanged;
+
+        addTaskVm.newTask = {}
+        addTaskVm.newTask.taskName = "sampl";
+
+        //addTaskVm.newTask.taskDate = new Date();
+
+
+        addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'MM/dd/yyyy');
+        console.log(addTaskVm.newTask.taskDate);
+
+        addTaskVm.newTask.taskPriority = "medium";
+        addTaskVm.newTask.taskDescription = "sampe big taelkk";
+
+
+        function priorityChanged() {
+            if (addTaskVm.newTask.priorityBar > 0 && addTaskVm.newTask.priorityBar <= 35) {
+                addTaskVm.newTask.taskPriority = "low";
+            } else if (addTaskVm.newTask.priorityBar > 35 && addTaskVm.newTask.priorityBar <= 70) {
+                addTaskVm.newTask.taskPriority = "medium";
+            } else if (addTaskVm.newTask.priorityBar > 70 && addTaskVm.newTask.priorityBar <= 100) {
+                addTaskVm.newTask.taskPriority = "high";
+            }
         }
-               
-        /*loginVm.reg_num = "234";
-        loginVm.password = "123"
 
-        loginVm.authenticateUser = authenticateUser;
-        activate();*/
+    }
 
-        /*function activate() {
-            APIServices.getStudentProfile().then(function(response) {
-                console.log(response);
-                if (response) {
-                    $state.go("header.dashboard");
-                }
-            });
-        }*/
-
-        /*function authenticateUser() {
+    /*function authenticateUser() {
             APIServices.login(loginVm.reg_num, loginVm.password).then(function(result) {
                 if (result == "password_wrong") {
                     alert("Password is wrong");

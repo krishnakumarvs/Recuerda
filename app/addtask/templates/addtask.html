@@ -8,15 +8,16 @@
 			  	<div class="col"></div>
 				</div> 
 			<div class="row">
-			
-			  <div class="col spacecol"><input type="text" placeholder="Your Task Name"></div>
+			  <div class="col spacecol"><input type="text" ng-model="Addtask.newTask.taskName" placeholder="Your Task Name"></div>
 			 
 			</div> 
 			<div class="row">
-			  <div class="col"></div>
-			  <div class="col spacecol"><button class="button button-small button-calm">
+			<div class="col"></div>
+			<div class="col spacecol">
+			  		<!-- <button class="button button-small button-calm">
   					choose a date
-					</button>
+					</button> -->
+					<input type="text" ng-model="Addtask.newTask.taskDate" name="bday">
 				<div class="col"></div>
 			</div>
 			  <div class="col"></div>
@@ -24,24 +25,33 @@
 			<div>
 			<div class="row">
 				<div class="col fontchange">
-				
  			 			Choose your Priorty
  			 	</div>
  			</div>
  			<div class="row">
+				<div class="col rangewidth">
+ 			 		<i class="ion-low"></i>
+						<input type="range" ng-model="Addtask.newTask.priorityBar" ng-change="Addtask.priorityChanged()" name="volume"  style="width:100%;" />
+					<i class="icon ion-high"></i>
+ 				</div>			
+			</div>
 
- 			 			<div class="col rangewidth">
- 			 			<i class="ion-low"></i>
-
- 						 <input type="range" name="volume"  style="width:100%;">
-			 		 <i class="icon ion-high"></i>
-				</div>			
+			<div class="row">
+				<div class="col align-left default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='low')}">
+					Low
+				</div>
+				<div class="col align-center default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='medium')}">
+					Medium
+				</div>
+				<div class="col align-right default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='high')}">
+					High
+				</div>
 			</div>
 
 	</div>
 		<div class="row">
 			 <div class="col"></div>
-				<div class="spacecol"><textarea rows="4" cols="50"></textarea></div>
+				<div class="spacecol"><textarea ng-model="Addtask.newTask.taskDescription" rows="4" cols="50"></textarea></div>
 			<div class="col"></div>
 		</div>
 		<div class="row">
