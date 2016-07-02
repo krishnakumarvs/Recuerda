@@ -10,12 +10,13 @@
      */
     .controller('AddtaskController', Addtask);
 
-    Addtask.$inject = ['$state', '$filter'];
+    Addtask.$inject = ['$state', '$filter', 'AddTaskDataService'];
 
-    function Addtask($state, $filter) {
+    function Addtask($state, $filter, AddTaskDataService) {
         var addTaskVm = this;
 
         addTaskVm.priorityChanged = priorityChanged;
+        addTaskVm.addNewTask = addNewTask;
 
         addTaskVm.newTask = {}
         addTaskVm.newTask.taskName = "sampl";
@@ -38,6 +39,10 @@
             } else if (addTaskVm.newTask.priorityBar > 70 && addTaskVm.newTask.priorityBar <= 100) {
                 addTaskVm.newTask.taskPriority = "high";
             }
+        }
+
+        function addNewTask() {
+            AddTaskDataService.addNewTask(addTaskVm.newTask);
         }
 
     }
