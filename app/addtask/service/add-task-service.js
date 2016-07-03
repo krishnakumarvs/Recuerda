@@ -1,4 +1,4 @@
-(function() {
+ (function() {
     'use strict';
 
     /**
@@ -34,10 +34,6 @@
         }*/
     }
 
-
-
-
-
     AddTaskClientDataService.$inject = ['$q', 'localStorageService'];
 
     function AddTaskClientDataService($q, localStorageService) {
@@ -70,44 +66,6 @@
             }
             return previousDayTotalPoints;
         }
-
-
-        /*function getMealListItems() {
-            var defer = $q.defer();
-            var formattedDate = SharedService.getSelectedDay('formattedDate');
-            var foundInLocalStorage = false;
-            var localStorageEntry = localStorageService.get("hirs.savedFoodDetails");
-            if (localStorageEntry && localStorageEntry[formattedDate]) {
-                defer.resolve(localStorageEntry[formattedDate]);
-                foundInLocalStorage = true;
-            }
-            return (foundInLocalStorage) ? defer.promise : false;
-        }*/
-
-        /*function storeFoodDetailToLocalStorage(foodItems) {
-            var formattedDate = SharedService.getSelectedDay('formattedDate');
-            var localStorageEntry = {};
-            localStorageEntry = localStorageService.get("hirs.savedFoodDetails") || localStorageEntry;
-            localStorageEntry[formattedDate] = foodItems;
-            localStorageService.set('hirs.savedFoodDetails', localStorageEntry);
-        }*/
-
-        /*function deleteItemFromLocalStorage(item) {
-            var formattedDate = SharedService.getSelectedDay('formattedDate');
-            var localStorageEntry = {};
-            var deleteOnce = false;
-            localStorageEntry = localStorageService.get("hirs.savedFoodDetails") || localStorageEntry;
-            var foodItems = (localStorageEntry[formattedDate]) ? localStorageEntry[formattedDate] : [];
-            angular.forEach(foodItems, function(eachItem, key) {
-                if (!deleteOnce && (eachItem.food_id == item.food_id) && (eachItem.entity_id == item.entity_id) && (eachItem.consumedunit == item.consumedunit)) {
-                    foodItems.splice(key, 1);
-                    deleteOnce = true;
-                }
-            });
-            localStorageEntry[formattedDate] = foodItems;
-            localStorageService.set('hirs.savedFoodDetails', localStorageEntry);
-        }*/
-
     }
 
     AddTaskPersistenceDataService.$inject = [];

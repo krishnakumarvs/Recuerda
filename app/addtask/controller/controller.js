@@ -6,7 +6,7 @@
      */
     angular.module(appName)
     /**
-     * Login Controller.
+     * Add Task Controller.
      */
     .controller('AddtaskController', Addtask);
 

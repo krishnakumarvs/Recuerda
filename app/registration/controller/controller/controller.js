@@ -6,48 +6,35 @@
      */
     angular.module(appName)
         /**
-         * REgisytration Controller.
+         * Registration Controller.
          */
         .controller('RegistrationController', Registration);
 
-    Registration.$inject = ['$state'];
+    Registration.$inject = ['$state', '$filter', 'RegistrationDataService'];
 
-    function Registration($state) {
+    function Registration($state, $filter, RegistrationDataService) {
         var registrationVm = this;
-        registrationVm.SubmitClick = SubmitClick;
+        registrationVm.confirmPassword=confirmPassword;
+        registrationVm.addNewUser=addNewUser;
+        registrationVm.newUser = {};
 
-        function SubmitClick() {
-            $state.go('header.profile');
+        registrationVm.newUser.email = "";
+        registrationVm.newUser.password = "";
+        registrationVm.newUser.userName = "";
+         var confirmPassword = "";
+
+        function addNewUser() {
+            console.log(111)
+            if(registrationVm.newUser.password ==registrationVm.confirmPassword)
+            {
+             RegistrationDataService.addNewUser(registrationVm.newUser);  
+             $state.go('login');
+            }
+            else{
+                console.log("password does not match");
+            }
         }
-
-
-
-        /*loginVm.reg_num = "234";
-        loginVm.password = "123"
-
-        loginVm.authenticateUser = authenticateUser;
-        activate();*/
-
-        /*function activate() {
-            APIServices.getStudentProfile().then(function(response) {
-                console.log(response);
-                if (response) {
-                    $state.go("header.dashboard");
-                }
-            });
-        }*/
-
-        /*function authenticateUser() {
-            APIServices.login(loginVm.reg_num, loginVm.password).then(function(result) {
-                if (result == "password_wrong") {
-                    alert("Password is wrong");
-                } else if (result == "no_such_reg_num") {
-                    alert("No such register number")
-                } else {
-                    $state.go("header.dashboard");
-                }
-            });
-        }*/
+        
     }
 
 })();

@@ -5,25 +5,35 @@
      * Get the main module (shared for Workout).
      */
     angular.module(appName)
-    /**
-     * Login Controller.
-     */
-    .controller('LoginController', Login);
+        /**
+         * Login Controller.
+         */
+        .controller('LoginController', Login);
 
     Login.$inject = ['$state'];
 
     function Login($state) {
         var loginVm = this;
-        loginVm.LoginFun=LoginFun;
-        loginVm.SignUp=SignUp;
-        function LoginFun(){
-             $state.go('header.tasks');
+        loginVm.LoginFun = LoginFun;
+        loginVm.SignUp = SignUp;
+
+        activate();
+
+        function activate() {
+
+            
         }
-        function SignUp(){
+
+
+        function LoginFun() {
+            $state.go('header.tasks');
+        }
+
+        function SignUp() {
 
             $state.go('registration');
         }
-               
+
         /*loginVm.reg_num = "234";
         loginVm.password = "123"
 

@@ -9,28 +9,28 @@
 			<div class="row margin-bottom-15">
 				<div class="col"></div>
 				<div class="col">
-				<input type="text" placeholder="Email Address">
+				<input type="text"  ng-model="Registration.newUser.email" placeholder="Email Address">
                 </div>
                 <div class="col"></div>
 			</div>
 			<div class="row margin-bottom-15">
 				<div class="col"></div>
 				<div class="col">
-				<input type="text" placeholder="Password">
+				<input type="password" ng-model="Registration.newUser.password"  placeholder="Password">
                 </div>
                 <div class="col"></div>
 			</div>
 			<div class="row margin-bottom-15">
 				<div class="col"></div>
 				<div class="col">
-				<input type="text" placeholder=" Confirm Password">
+				<input type="password" ng-model="Registration.confirmPassword"  placeholder=" Confirm Password">
                 </div>
                 <div class="col"></div>
 			</div>
 			<div class="row">
 				<div class="col"></div>
 				<div class="col">
-				<button class="button button-royal button-block" ng-click="Registration.SubmitClick()" >
+				<button class="button button-royal button-block" ng-click="Registration.addNewUser()">
                  submit
                 </button>
                 </div>
