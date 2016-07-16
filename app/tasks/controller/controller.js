@@ -5,10 +5,10 @@
      * Get the main module (shared for Workout).
      */
     angular.module(appName)
-        /**
-         * Login Controller.
-         */
-        .controller('TaskPageController', Tasks);
+    /**
+     * Task Page Controller.
+     */
+    .controller('TaskPageController', Tasks);
 
     Tasks.$inject = ['$state'];
 
@@ -36,18 +36,19 @@
         }];
 
         tasksVm.tasks = tasks;
-        
-    
-        function addTask(){
+
+
+        function addTask() {
             $state.go('header.addtask');
         }
 
-        tasksVm.addTask=addTask;
-        function GotoViewTask(){
+        tasksVm.addTask = addTask;
+
+        function GotoViewTask() {
             $state.go('header.viewtask')
         }
         tasksVm.GotoViewTask = GotoViewTask;
 
 
-}
+    }
 })();
