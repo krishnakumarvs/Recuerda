@@ -20,14 +20,20 @@
 
         registrationVm.newUser.email = "";
         registrationVm.newUser.password = "";
-        registrationVm.newUser.userName = "";
         var confirmPassword = "";
 
         function addNewUser() {
             if (registrationVm.newUser.password == registrationVm.confirmPassword) {
                 //RegistrationDataService.addNewUser(registrationVm.newUser);  
-                //$state.go('login');
-
+                firebase.auth().createUserWithEmailAndPassword(registrationVm.newUser.email, registrationVm.newUser.password).then(function(response) {
+                    console.log(response);
+                    registrationVm.response = response;
+                    alert("Successfully registered. Please login");
+                    $state.go('login');
+                }).catch(function(error) {
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+                });
             } else {
                 console.log("password does not match");
             }
