@@ -20,7 +20,7 @@
         loginVm.currentUser.password = "";
 
         // Function declarations
-        loginVm.LoginFun = LoginFun;
+        loginVm.authinticateUser = authinticateUser;
         loginVm.SignUp = SignUp;
 
         activate();
@@ -30,7 +30,7 @@
         }
 
 
-        function LoginFun() {
+        function authinticateUser() {
             firebase.auth().signInWithEmailAndPassword(loginVm.currentUser.email, loginVm.currentUser.password).then(function(response) {
                 //console.log(response);
                 $state.go('header.tasks');
