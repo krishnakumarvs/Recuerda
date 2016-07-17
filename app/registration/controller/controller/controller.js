@@ -10,9 +10,9 @@
      */
     .controller('RegistrationController', Registration);
 
-    Registration.$inject = ['$state', '$filter', 'RegistrationDataService'];
+    Registration.$inject = ['$state', '$filter', 'RegistrationDataService', 'config'];
 
-    function Registration($state, $filter, RegistrationDataService) {
+    function Registration($state, $filter, RegistrationDataService, config) {
         var registrationVm = this;
         registrationVm.confirmPassword = confirmPassword;
         registrationVm.addNewUser = addNewUser;
@@ -26,17 +26,17 @@
             if (registrationVm.newUser.password == registrationVm.confirmPassword) {
                 firebase.auth().createUserWithEmailAndPassword(registrationVm.newUser.email, registrationVm.newUser.password).then(function(response) {
                     RegistrationDataService.storeUserDetails(response).then(function() {
-                        alert("Successfully registered. Please login");
+                        alert(config.uiMessages.registerationSuccess);
                         $state.go('login');
                     }).catch(function() {
-                        alert("Could register, please try after some time");
+                        alert(config.uiMessages.registerationFailed);
                     });
                 }).catch(function(error) {
                     var errorMessage = error.message;
                     alert(errorMessage);
                 });
             } else {
-                alert("password do not match");
+                alert(uiMessages.incorrectPassword.config);
             }
         }
 
