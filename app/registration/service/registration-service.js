@@ -19,14 +19,14 @@
 
      function RegistrationDataService(RegistrationClientDataService) {
          var registrationDataService = {
-             addNewUser: addNewUser
+             storeUserDetails: storeUserDetails
          };
 
          return registrationDataService;
 
 
-         function addNewUser(newUser) {
-             RegistrationClientDataService.addNewUser(newUser);
+         function storeUserDetails(userDetails) {
+             return RegistrationClientDataService.storeUserDetails(userDetails);
          }
      }
 
@@ -34,14 +34,15 @@
 
      function RegistrationClientDataService($q, localStorageService) {
          var registrationClientDataService = {
-             addNewUser: addNewUser
+             storeUserDetails: storeUserDetails
          };
          return registrationClientDataService;
 
-         function addNewUser(newUser) {
-             console.log(newUser);
-
-             localStorageService.set("user", newUser);
+         function storeUserDetails(userDetails) {
+             var defer = $q.defer();
+             localStorageService.set("userDetails", userDetails);
+             defer.resolve(true);
+             return defer.promise;
          }
      }
 

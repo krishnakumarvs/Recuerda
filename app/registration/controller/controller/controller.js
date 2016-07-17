@@ -24,18 +24,19 @@
 
         function addNewUser() {
             if (registrationVm.newUser.password == registrationVm.confirmPassword) {
-                //RegistrationDataService.addNewUser(registrationVm.newUser);  
                 firebase.auth().createUserWithEmailAndPassword(registrationVm.newUser.email, registrationVm.newUser.password).then(function(response) {
-                    console.log(response);
-                    registrationVm.response = response;
-                    alert("Successfully registered. Please login");
-                    $state.go('login');
+                    RegistrationDataService.storeUserDetails(response).then(function() {
+                        alert("Successfully registered. Please login");
+                        $state.go('login');
+                    }).catch(function() {
+                        alert("Could register, please try after some time");
+                    });
                 }).catch(function(error) {
                     var errorMessage = error.message;
                     alert(errorMessage);
                 });
             } else {
-                console.log("password does not match");
+                alert("password do not match");
             }
         }
 
