@@ -19,24 +19,40 @@
 
      function LoginDataService(LoginClientDataService) {
          var loginDataService = {
-             currentUser: currentUser
+             currentUser: currentUser,
+             getUserDetails: getUserDetails
          };
 
          return loginDataService;
 
+         function getUserDetails() {
+             return LoginClientDataService.getUserDetails();
+         }
 
          function currentUser(currentUser) {
              LoginClientDataService.currentUser(currentUser);
          }
      }
 
-     LoginClientDataService.$inject = ['$q', 'localStorageService'];
+     LoginClientDataService.$inject = ['$q', 'localStorageService', 'config'];
 
-     function LoginClientDataService($q, localStorageService) {
+     function LoginClientDataService($q, localStorageService, config) {
          var loginClientDataService = {
-             currentUser: currentUser
+             currentUser: currentUser,
+             getUserDetails: getUserDetails
          };
          return loginClientDataService;
+
+         function getUserDetails() {
+             var defer = $q.defer();
+             var userDetails = localStorageService.get(config.localStorageKeys.userDetails);
+             if (userDetails) {
+                 defer.resolve(userDetails);
+             } else {
+                 defer.reject();
+             }
+             return defer.promise;
+         }
 
          function currentUser() {
              var currentUserValue = localStorageService.get("user");
@@ -52,5 +68,3 @@
          return loginPersistenceDataService;
      }
  })();
-
-    

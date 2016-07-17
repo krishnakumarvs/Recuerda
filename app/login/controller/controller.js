@@ -26,7 +26,11 @@
         activate();
 
         function activate() {
-
+            LoginDataService.getUserDetails().then(function(response) {
+                loginVm.currentUser.email = response.email;
+            }).catch(function(error) {
+                // No user details found which means user haven't registered
+            });
         }
 
 

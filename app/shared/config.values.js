@@ -6,8 +6,13 @@
         incorrectPassword: "Password do not match"
     };
 
+    var localStorageKeys = {
+        userDetails: "userDetails"
+    };
+
     var config = {
-        uiMessages: uiMessages
+        uiMessages: uiMessages,
+        localStorageKeys: localStorageKeys
     };
 
     angular.module(appName).value('config', config);

@@ -30,9 +30,9 @@
          }
      }
 
-     RegistrationClientDataService.$inject = ['$q', 'localStorageService'];
+     RegistrationClientDataService.$inject = ['$q', 'localStorageService', 'config'];
 
-     function RegistrationClientDataService($q, localStorageService) {
+     function RegistrationClientDataService($q, localStorageService, config) {
          var registrationClientDataService = {
              storeUserDetails: storeUserDetails
          };
@@ -40,7 +40,7 @@
 
          function storeUserDetails(userDetails) {
              var defer = $q.defer();
-             localStorageService.set("userDetails", userDetails);
+             localStorageService.set(config.localStorageKeys.userDetails, userDetails);
              defer.resolve(true);
              return defer.promise;
          }
