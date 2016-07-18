@@ -18,3 +18,24 @@ button.button.button-royal.margin-align {
 	font-size: 70px;
 
 }
+.col.loginOrSignup{
+	font-family: Myriad Pro;
+	font-size: 20px;
+
+
+}
+input.ng-pristine.ng-valid{
+    background-color: #82a15e;
+    border-color: black;
+
+   }
+button.button.button-block.button-royal.button-login
+{
+background-color: #c4e68c;
+color:#464646;
+border-color:#c4e68c;
+}
+.col.textdecoration a{
+	text-decoration: none;
+	color: white;
+}
