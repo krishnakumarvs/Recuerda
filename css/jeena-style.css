@@ -49,3 +49,13 @@ input.passwordimage{
 	background-color: #82a15e;
 	 padding-left: 70px;
 }
+.col.registrationTitle{
+	margin-top: 70px;
+	font-size: 20px;
+}
+input.emailimage{
+	background-image: url("../img/email.png");
+	background-repeat: no-repeat;
+	background-color: #82a15e;
+	 padding-left: 70px;
+}
