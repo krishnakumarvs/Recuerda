@@ -59,3 +59,25 @@ input.emailimage{
 	background-color: #82a15e;
 	 padding-left: 70px;
 }
+.task-style{
+	color: white;
+	margin-top: 20px;
+}
+.text-align-center{
+	text-align: center;
+}
+.item.border{
+
+ 	padding: 0px!important;
+	font-size: 14px !important;
+	margin-left: 10%!important;
+   	border-left-style: none!important;
+    border-right-style: none!important;
+    margin-right: 10%!important;
+    border-top-style: none!important;
+    margin-top: 10px!important;
+    border-color: #829877!important;
+}
+.margin-top{
+	margin-top: 10px;
+}

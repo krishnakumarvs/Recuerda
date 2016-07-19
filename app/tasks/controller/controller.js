@@ -18,20 +18,20 @@
 
         var tasks = [{
             name: "Buy apple",
-            date: "today "
+            date: "today ",
+            description:"Etiam sit ametb fbf"
         }, {
             name: "book flight tckt",
-            date: "today evening"
+            date: "today",
+            description:"Etiam sit amet dfdfd dfrdgtfjh"
         }, {
             name: "Get job",
-            date: "tomorrow"
+            date: "tomorrow",
+            description:"Etiam sit amet fgfbf sdfrdfgdv"
         }, {
             name: "Marriage function",
-            date: "last sunday"
-
-        }, {
-            name: "Class meeting",
-            date: "6.07.2016"
+            date: "sunday",
+            description:"Etiam sit amet vfgbftfgh dvdfgdrfgdf"
 
         }];
 

@@ -7,21 +7,33 @@
 			  <div class="col"></div>
 			</div>-->
 			  
-				<ul class="list" >
-            		<li class="item" ng-repeat="item in Tasks.tasks"> 
-		            	<div class="row taskstyle"ng-click="Tasks.GotoViewTask()">
-		            		<div class="col">{{item.name}}</div>
-		            		<div class="col">{{item.date}}</div>
-		            	</div>
-            	     </li>
+				<ul class="list margin-top-15" >
+            		<li class="item border" ng-repeat="item in Tasks.tasks"> 
+		            	<div class="row task-style"ng-click="Tasks.GotoViewTask()">
+		            		<div class="col-10"></div>
+		            		<div class="col-15"><img src="img/clock.png" /></div>
+				           	<div class="col-20 text-align-center">{{item.date}}</div>
+				           	<div class="col">
+				           		<div class="row">
+		            				<div class="col">{{item.name}}</div>
+		            			</div>
+		            			<div class="row">
+		            				<div class="col">{{item.description}}</div>
+		            			</div>
+		            		</div>
+		            		<div class="col-10"></div>
+		    		   	</div>
+		            </li>
                 </ul>
          	
          	     <div class="row">
-         		     <div class="col align-center">
-         			<button class="button button-large button-positive" ng-click="Tasks.addTask()" ng-init="count=0"> NEW
+         	     	<div class="col-20"></div>
+         		    <div class="col align-center">
+         			<button class="button button-block button-balanced" ng-click="Tasks.addTask()" ng-init="count=0"> NEW TASK
          			</button> 
+         			</div>
+         			<div class="col-20"></div>
          		</div>
-         	</div>
 	 	 </div>
 	</ion-content>
 </ion-view>
