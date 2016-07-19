@@ -21,14 +21,8 @@ button.button.button-royal.margin-align {
 .col.loginOrSignup{
 	font-family: Myriad Pro;
 	font-size: 20px;
-
-
 }
-input.ng-pristine.ng-valid{
-    background-color: #82a15e;
-    border-color: black;
 
-   }
 button.button.button-block.button-royal.button-login
 {
 background-color: #c4e68c;
@@ -42,4 +36,16 @@ border-color:#c4e68c;
 button.button.button-block.button-royal.button-facebook{
 	color: white;
 	background-color: #3c599f;
+}
+input.userimage{
+	background-image: url("../img/user.png");
+	background-repeat: no-repeat;
+	background-color: #82a15e;
+	 padding-left: 70px;
+}
+input.passwordimage{
+	background-image: url("../img/password.png");
+	background-repeat: no-repeat;
+	background-color: #82a15e;
+	 padding-left: 70px;
 }
