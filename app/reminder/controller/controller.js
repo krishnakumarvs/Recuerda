@@ -18,18 +18,21 @@
 
         var reminder = [{
                 name: "Buy apple",
-                date: "today "
+                date: "today ",
+                description:"hhhkjd hjdk"
 
             },
 
             {
                 name: "Get job",
-                date: "tomorrow"
+                date: "tomorrow",
+                description:"hhhkjd hjdk"
 
 
             }, {
                 name: "Class meeting",
-                date: "6.07.2016"
+                date: "6.07.2016",
+                description:"hhhkjd hjdk"
 
             }
         ];

@@ -121,4 +121,6 @@ input.calenderImage{
 	background-image: url("../img/calender.png"); 
 	background-repeat: no-repeat;
 	}
-
+	ul.list.margin-top-15 {
+    margin-top: 10px;
+}
