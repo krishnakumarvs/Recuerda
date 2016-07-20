@@ -82,17 +82,26 @@ input.emailimage{
 	margin-top: 35px;
 }
 .margin-top-15{
-	margin-top: 20px;
+	margin-top: 15px;
 }
 .color-change{
 	color: #a5aaa4;
 }
-.margin-top-45{
-	margin-top: 45px;
+.margin-top-40{
+	margin-top: 40px;
 }
 .color-white{
 	color: white;
 }
 button.button-radius{
-	border-radius: 5px;
+	
+	.border-radius: 5px;
+}
+input.placeholder-background {
+	background-color:  #64775b;
+	color: white;
+}
+img.clock{
+	width: 27px;
+	height: 27px;
 }
