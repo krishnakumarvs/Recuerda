@@ -19,7 +19,7 @@
         addTaskVm.addNewTask = addNewTask;
 
         addTaskVm.newTask = {}
-        addTaskVm.newTask.taskName = "sampl";
+        addTaskVm.newTask.taskName = "Enter your Task Here";
 
         //addTaskVm.newTask.taskDate = new Date();
 
@@ -28,7 +28,7 @@
         console.log(addTaskVm.newTask.taskDate);
 
         addTaskVm.newTask.taskPriority = "medium";
-        addTaskVm.newTask.taskDescription = "sampe big taelkk";
+        addTaskVm.newTask.taskDescription = "Description";
 
 
         function priorityChanged() {

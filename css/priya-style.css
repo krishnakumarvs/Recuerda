@@ -7,14 +7,11 @@
   font-size: 22px;
   font-family: cursive;
 }
-.col.spacecol {
-    margin-top: 8%;
-       
-}
+
 .col.fontchange
 {
-	font-family: cursive;
-	font-size: 20px;
+	color:#a5aaa4;
+	font-size: 15px;
 	
 }
 

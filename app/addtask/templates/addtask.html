@@ -1,69 +1,65 @@
 <ion-view title={{pageTitle}}>
 	<ion-content class="">
 		<div class="ion-content ">
-			
-			<div class="row">
-			  	<div class="col"></div>
-			  	
-			  	<div class="col"></div>
-				</div> 
-			<div class="row">
-			  <div class="col spacecol"><input type="text" ng-model="Addtask.newTask.taskName" placeholder="Your Task Name"></div>
-			 
+			<div class="row margin-top-40">
+			  	<div class="col-10"></div>
+			  	 <div class="col"><input type="text" class="placeholder-background" ng-model="Addtask.newTask.taskName" placeholder="Your Task Name"></div>
+			  	<div class="col-10"></div>
 			</div> 
 			<div class="row">
-			<div class="col"></div>
-			<div class="col spacecol">
-			  		<!-- <button class="button button-small button-calm">
-  					choose a date
-					</button> -->
-					<input type="text" ng-model="Addtask.newTask.taskDate" name="bday">
-				<div class="col"></div>
-			</div>
-			  <div class="col"></div>
-			</div> 
-			<div>
+				<div class="col-10"></div>
+				<div class="col">
+					
+					<input type="text" class="placeholder-background calenderImage" ng-model="Addtask.newTask.taskDate" name="bday">
+				
+			    </div>
+			 	<div class="col"></div>
+			</div><br><br>
 			<div class="row">
+				<div class="col-10"></div>
 				<div class="col fontchange">
  			 			Choose your Priorty
  			 	</div>
+ 			 	<div class="col-10"></div>
  			</div>
  			<div class="row">
+ 				<div class="col-10"></div>
 				<div class="col rangewidth">
  			 		<i class="ion-low"></i>
-						<input type="range" ng-model="Addtask.newTask.priorityBar" ng-change="Addtask.priorityChanged()" name="volume"  style="width:100%;" />
+						<input type="range"  ng-model="Addtask.newTask.priorityBar" ng-change="Addtask.priorityChanged()" name="volume"  style="width:100%;" />
 					<i class="icon ion-high"></i>
- 				</div>			
+ 				</div>	
+ 				<div class="col-10"></div>		
 			</div>
 
 			<div class="row">
-				<div class="col align-left default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='low')}">
+				<div class="col-10"></div>
+				<div class="col color-change align-left default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='low')}">
 					Low
 				</div>
-				<div class="col align-center default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='medium')}">
+				<div class="col color-change align-center default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='medium')}">
 					Medium
 				</div>
-				<div class="col align-right default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='high')}">
+				<div class="col color-change align-right default-priority" ng-class="{'highlight-priority' : (Addtask.newTask.taskPriority=='high')}">
 					High
 				</div>
+				<div class="col-10"></div>
 			</div>
 
 	</div>
 		<div class="row">
-			 <div class="col"></div>
-				<div class="spacecol"><textarea ng-model="Addtask.newTask.taskDescription" rows="4" cols="50"></textarea></div>
-			<div class="col"></div>
+			 <div class="col-10"></div>
+				<div class="col"><textarea class="placeholder-background" ng-model="Addtask.newTask.taskDescription" rows="4" cols="50"></textarea></div>
+			<div class="col-10"></div>
 		</div>
 		<div class="row">
-			  <div class="col"></div>
-			   
-				<div class="col spacecol">
-				<button class="button button-small button-positive" ng-click="Addtask.addNewTask()">
-  				Submit
+			  <div class="col-10"></div>
+			  <div class="col-20">
+			   	<button class="button button-small button-background button-block button-calm" ng-click="Addtask.addNewTask()">
+  				SUBMIT
 				</button>
-				 </div>
-				 <div class="col"></div>
-				
+			 </div>
+			<div class="col"></div>
 		</div>
 	</div>
 	</ion-content>

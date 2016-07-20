@@ -75,8 +75,7 @@ input.emailimage{
     border-right-style: none!important;
     margin-right: 10%!important;
     border-top-style: none!important;
-   
-    border-color: #829877!important;
+     border-color: #829877!important;
 }
 .margin-top{
 	margin-top: 35px;
@@ -98,10 +97,28 @@ button.button-radius{
 	.border-radius: 5px;
 }
 input.placeholder-background {
-	background-color:  #64775b;
-	color: white;
+	background-color: #64775b;
+	color:#a5aaa4;
+	padding-left: 40px;
 }
 img.clock{
 	width: 27px;
 	height: 27px;
 }
+textarea.placeholder-background {
+	background-color: #64775b;
+	color:#a5aaa4;
+	padding-left: 40px;
+}
+.button-background{
+	background-color: #388f96!important;
+	border-color: #388f96!important;
+}
+input[type=range]{
+	background: linear-gradient(to right,#379096 0,#379096 100%) center/99% 4px no-repeat!important;
+}
+input.calenderImage{
+	background-image: url("../img/calender.png"); 
+	background-repeat: no-repeat;
+	}
+
