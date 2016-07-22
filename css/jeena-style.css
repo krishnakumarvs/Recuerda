@@ -125,3 +125,21 @@ input.calenderImage{
 	ul.list.margin-top-15 {
     margin-top: 10px;
 }
+li.item.item-toggle.noBorder {
+    border-style: none;
+    color: white;
+}
+button.float-right-15{
+	
+	float: right;
+	width: 55px;
+	margin-right: 15px;
+	color: black!important;
+	background-color: white!important;
+	border-color: white!important;
+}
+li.margin-top-20{
+	margin-top: 20px;
+	margin-left: 5px;
+	font-size: 17px;
+}
