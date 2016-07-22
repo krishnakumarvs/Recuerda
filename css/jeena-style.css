@@ -94,7 +94,7 @@ input.emailimage{
 }
 button.button-radius{
 	
-	.border-radius: 5px;
+	border-radius: 5px;
 
 }
 input.placeholder-background {

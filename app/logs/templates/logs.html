@@ -3,21 +3,20 @@
 		<div class="ion-content">
 			
 
-			<div class="row">
-			  <div class="col-20"></div>
-			  <div class="col align-center ">
-			  <button class="button button-positive" ng-click="Logs.reminderClicked()">Reminder</button>
-			  <button class="button button-positive" ng-click="Logs.tasksClicked()">Tasks</button>
+			<div class="row margin-top">
+			  <div class="col-10"></div>
+			  <div class="col-33">
+			  <button class="button button-block button-small button-calm" ng-click="Logs.reminderClicked()">Reminder</button>
 			  </div>
-			  <div class="col-20"></div>
+			   <div class="col"></div>
+			  <div class="col-33">
+			  <button class="button button-block button-small button-calm" ng-click="Logs.tasksClicked()">Tasks</button>
+			  </div>
+			  <div class="col-10"></div>
 			</div>
-
-            
-
             	<ul class="list" ng-repeat="item in Logs.allItems">
-    				<li class="item">
-    					<div class="row">
-
+    				<li class="item border">
+    					<div class="row color-change">
       						<div class="col-33 align-left">{{item.name}}</div>
       						<div class="col-33 align-center">{{item.date}}</div>
       						<div class="col-33 align-right">{{item.status}}</div>
