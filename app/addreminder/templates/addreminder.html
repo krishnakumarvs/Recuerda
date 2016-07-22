@@ -1,57 +1,62 @@
 <ion-view title={{pageTitle}}>
 	<ion-content class="">
 		<div class="ion-content ">
-			
-			<div class="row">
-			  	<div class="col"></div>
-			  	
-			  	<div class="col"></div>
+			<div class="row margin-top-40">
+			  	<div class="col-10"></div>
+			  	 <div class="col"><input type="text" class="placeholder-background" ng-model="AddReminder.newReminder.reminderName" placeholder="Your Reminder Name"></div>
+			  	<div class="col-10"></div>
 			</div> 
-
 			<div class="row">
-			
-			 	 <div class="col spacecol"><input type="text" placeholder="Your Task Name" ></div>
-			 
-			</div> 
-
-			<div class="row">
-			  	<div class="col"></div>
-			  	<div class="col spacecol">	<button class="button button-small button-calm">
-  					choose a date
-											</button>
-				<div class="col"></div>
-				</div>
-			  	<div class="col"></div>
-			</div> 
-			
-			<div class="row">
-				<div class="col fontchange">
+				<div class="col-10"></div>
+				<div class="col">
+					
+					<input type="text" class="placeholder-background calenderImage" ng-model="AddReminder.newReminder.reminderDate" name="bday">
 				
+			    </div>
+			 	<div class="col"></div>
+			</div><br><br>
+			<div class="row">
+				<div class="col-10"></div>
+				<div class="col fontchange">
  			 			Choose your Priorty
  			 	</div>
+ 			 	<div class="col-10"></div>
  			</div>
-
  			<div class="row">
- 			 	<div class="col rangewidth">
- 			 			<i class="ion-low"></i>
- 			 			<input type="range" name="volume"  style="width:100%;">
-			 			 <i class="icon ion-high"></i>
-				</div>			
+ 				<div class="col-10"></div>
+				<div class="col rangewidth">
+ 			 		<i class="ion-low"></i>
+						<input type="range"  ng-model="AddReminder.newReminder.priorityBar" ng-change="AddReminder.priorityChanged()" name="volume"  style="width:100%;" />
+					<i class="icon ion-high"></i>
+ 				</div>	
+ 				<div class="col-10"></div>		
 			</div>
 
-	
-		<div class="row">
-			<div class="col"></div>
-				<div class="spacecol"><textarea rows="4" cols="50"></textarea></div>
-			<div class="col"></div>
-		</div>
+			<div class="row">
+				<div class="col-10"></div>
+				<div class="col color-change align-left default-priority" ng-class="{'highlight-priority' : (AddReminder.newReminder.reminderPriority=='low')}">
+					Low
+				</div>
+				<div class="col color-change align-center default-priority" ng-class="{'highlight-priority' : (AddReminder.newReminder.reminderPriority=='medium')}">
+					Medium
+				</div>
+				<div class="col color-change align-right default-priority" ng-class="{'highlight-priority' : (AddReminder.newReminder.reminderPriority=='high')}">
+					High
+				</div>
+				<div class="col-10"></div>
+			</div>
 
+	</div>
 		<div class="row">
-			<div class="col"></div>
-			   
-			<div class="col spacecol">
-				<button class="button button-small button-positive">
-  				Submit
+			 <div class="col-10"></div>
+				<div class="col"><textarea class="placeholder-background" ng-model="AddReminder.newReminder.reminderDescription" rows="4" cols="50"></textarea></div>
+			<div class="col-10"></div>
+		</div>
+		<div class="row">
+			  <div class="col-10"></div>
+			  <div class="col-20">
+			   	<button class="button button-small button-background button-block button-calm" ng-click="AddReminder.addNewReminder()">
+  				SUBMIT
 				</button>
 			 </div>
 			<div class="col"></div>
