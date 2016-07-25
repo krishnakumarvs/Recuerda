@@ -18,6 +18,7 @@
         profileVm.profileDetails = {}
         profileVm.profileDetails.userName = "";
         profileVm.profileDetails.email = "";
+        profileVm.profileDetails.emailVerified="";
 
         activate();
 
