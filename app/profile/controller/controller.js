@@ -26,7 +26,7 @@
 
             ProfileDataService.getProfileDetails().then(function(response) {
                 profileVm.profileDetails.userName = response;
-                console.log(response)
+                console.log(response);
             }).catch(function(error) {
                 alert(error);
             });

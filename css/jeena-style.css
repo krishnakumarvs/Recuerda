@@ -38,7 +38,7 @@ button.button.button-block.button-royal.button-facebook{
 	background-color: #3c599f;
 }
 input.userimage{
-	background-image: url("../img/user.png");
+	background-image: url("../img/user.png") ;
 	background-repeat: no-repeat;
 	background-color: #82a15e;
 	 padding-left: 70px;
@@ -54,10 +54,11 @@ input.passwordimage{
 	font-size: 20px;
 }
 input.emailimage{
-	background-image: url("../img/email.png");
+	background-image: url("../img/email.png") ;
 	background-repeat: no-repeat;
 	background-color: #82a15e;
 	 padding-left: 70px;
+	 position: relative;
 }
 .task-style{
 	color: white;
@@ -119,10 +120,11 @@ input[type=range]{
 	background: linear-gradient(to right,#379096 0,#379096 100%) center/99% 4px no-repeat!important;
 }
 input.calenderImage{
-	background-image: url("../img/calender.png"); 
-	background-repeat: no-repeat;
-	position:relative;
-
+	background: url("../img/calender.png") #64775b right 6px bottom 4.5px;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: 22px 75%;
+}
 	}
 	ul.list.margin-top-15 {
     margin-top: 10px;
