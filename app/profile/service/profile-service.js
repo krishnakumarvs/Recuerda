@@ -41,7 +41,7 @@
 
         function getProfileDetails() {
             var defer = $q.defer();
-            var profileDetails = localStorageService.get("user");
+            var profileDetails = localStorageService.get("userDetails");
             if (!profileDetails) {
                 defer.reject("User is not registered yet!");
             } else {
