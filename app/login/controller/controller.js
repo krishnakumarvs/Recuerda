@@ -5,10 +5,10 @@
      * Get the main module (shared for Workout).
      */
     angular.module(appName)
-    /**
-     * Login Controller.
-     */
-    .controller('LoginController', Login);
+        /**
+         * Login Controller.
+         */
+        .controller('LoginController', Login);
 
     Login.$inject = ['$state', '$filter', 'LoginDataService'];
 
@@ -16,8 +16,8 @@
         var loginVm = this;
         // Variable declarations
         loginVm.currentUser = {};
-        loginVm.currentUser.email = "";
-        loginVm.currentUser.password = "";
+        loginVm.currentUser.email = "jeena@gmail.com";
+        loginVm.currentUser.password = "jeena123";
 
         // Function declarations
         loginVm.authinticateUser = authinticateUser;
@@ -37,7 +37,10 @@
         function authinticateUser() {
             firebase.auth().signInWithEmailAndPassword(loginVm.currentUser.email, loginVm.currentUser.password).then(function(response) {
                 //console.log(response);
-                $state.go('header.tasks');
+                
+                LoginDataService.storeUserDetails(response).then(function() {
+                   $state.go('header.tasks'); 
+                });
             }).catch(function(error) {
                 alert(error.message);
             });

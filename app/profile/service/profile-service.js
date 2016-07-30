@@ -31,9 +31,9 @@
 
     }
 
-    ProfileClientDataService.$inject = ['$q', 'localStorageService'];
+    ProfileClientDataService.$inject = ['$q', 'localStorageService', 'config'];
 
-    function ProfileClientDataService($q, localStorageService) {
+    function ProfileClientDataService($q, localStorageService, config) {
         var profileClientDataService = {
             getProfileDetails: getProfileDetails
         };
@@ -41,7 +41,7 @@
 
         function getProfileDetails() {
             var defer = $q.defer();
-            var profileDetails = localStorageService.get("userDetails");
+            var profileDetails = localStorageService.get(config.localStorageKeys.userDetails);
             if (!profileDetails) {
                 defer.reject("User is not registered yet!");
             } else {

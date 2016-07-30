@@ -20,7 +20,8 @@
      function LoginDataService(LoginClientDataService) {
          var loginDataService = {
              currentUser: currentUser,
-             getUserDetails: getUserDetails
+             getUserDetails: getUserDetails,
+             storeUserDetails: storeUserDetails
          };
 
          return loginDataService;
@@ -32,6 +33,9 @@
          function currentUser(currentUser) {
              LoginClientDataService.currentUser(currentUser);
          }
+          function storeUserDetails(userDetails) {
+             return LoginClientDataService.storeUserDetails(userDetails);
+         }
      }
 
      LoginClientDataService.$inject = ['$q', 'localStorageService', 'config'];
@@ -39,7 +43,8 @@
      function LoginClientDataService($q, localStorageService, config) {
          var loginClientDataService = {
              currentUser: currentUser,
-             getUserDetails: getUserDetails
+             getUserDetails: getUserDetails,
+             storeUserDetails: storeUserDetails
          };
          return loginClientDataService;
 
@@ -58,6 +63,12 @@
              var currentUserValue = localStorageService.get("user");
              console.log(currentUserValue);
              return currentUserValue;
+         }
+          function storeUserDetails(userDetails) {
+             var defer = $q.defer();
+             localStorageService.set(config.localStorageKeys.userDetails, userDetails);
+             defer.resolve(true);
+             return defer.promise;
          }
      }
 
