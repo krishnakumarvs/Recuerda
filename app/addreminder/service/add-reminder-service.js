@@ -15,9 +15,9 @@
 
     .factory('AddReminderPersistenceDataService', AddReminderPersistenceDataService);
 
-    AddReminderDataService.$inject = ['AddReminderClientDataService'];
+    AddReminderDataService.$inject = ['AddReminderClientDataService','AddReminderPersistenceDataService'];
 
-    function AddReminderDataService(AddReminderClientDataService) {
+    function AddReminderDataService(AddReminderClientDataService,AddReminderPersistenceDataService) {
         var addReminderDataService = {
             addNewReminder: addNewReminder
         };
@@ -26,7 +26,7 @@
 
 
         function addNewReminder(newReminder) {
-            AddReminderClientDataService.addNewReminder(newReminder);
+            return AddReminderPersistenceDataService.addNewReminder(newReminder);
         }
 
         /*function getMealListItems() {
@@ -68,10 +68,24 @@
         }
     }
 
-    AddReminderPersistenceDataService.$inject = [];
+    AddReminderPersistenceDataService.$inject = ['$q','config','HeaderDataService'];
 
-    function AddReminderPersistenceDataService() {
-        var addReminderPersistenceDataService = {};
+    function AddReminderPersistenceDataService($q,config,HeaderDataService) {
+        var addReminderPersistenceDataService = {
+            addNewReminder:addNewReminder
+        };
+        
         return addReminderPersistenceDataService;
+
+        function addNewReminder(newReminder){
+            var defer=$q.defer();
+            HeaderDataService.getUserUniqueKey().then(function(userUniqueKey){
+                console.log("userUniqueKey:"+userUniqueKey);
+                firebase.database().ref(userUniqueKey +"/"+config.firebaseKeys.reminder).push(newReminder);
+                defer.resolve(true);
+            });
+            return defer.promise;
+
+        }
     }
 })();

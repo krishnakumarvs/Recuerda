@@ -10,25 +10,49 @@
          */
         .controller('AddReminderController', AddReminder);
 
-    AddReminder.$inject = ['$state','$filter', 'AddReminderDataService'];
+    AddReminder.$inject = ['$state', '$filter', 'AddReminderDataService', 'ionicDatePicker'];
 
-    function AddReminder($state, $filter, AddReminderDataService) {
+    function AddReminder($state, $filter, AddReminderDataService, ionicDatePicker) {
         var addReminderVm = this;
 
         addReminderVm.priorityChanged = priorityChanged;
         addReminderVm.addNewReminder = addNewReminder;
+        addReminderVm.openDatePicker = openDatePicker;
+        activate();
 
-        addReminderVm.newReminder = {}
-        addReminderVm.newReminder.reminderName = "Enter your reminder Here";
+        function activate() {
+            addReminderVm.newReminder = {}
+            addReminderVm.newReminder.reminderName = "";
+            addReminderVm.newReminder.reminderDate = $filter('date')(new Date(), 'MM/dd/yyyy');
+            console.log(addReminderVm.newReminder.reminderDate);
+            addReminderVm.newReminder.priorityBar = 50;
+            addReminderVm.newReminder.reminderPriority = "medium";
+            addReminderVm.newReminder.reminderDescription = "";
 
-        //addTaskVm.newTask.taskDate = new Date();
+        }
+        var datepickerConfig = {
+            callback: function(val) { //Mandatory
+                /*console.log('Return value from the datepicker popup is : ' + val, new Date(val));*/
+                addReminderVm.newReminder.reminderDate = $filter('date')(new Date(val), 'MM/dd/yyyy');
+            },
+            disabledDates: [ //Optional
+                new Date(2016, 2, 16),
+                new Date(2015, 3, 16),
+                new Date(2015, 4, 16),
+                new Date(2015, 5, 16),
+                new Date('Wednesday, August 12, 2015'),
+                new Date("08-16-2016"),
+                new Date(1439676000000)
+            ],
+            from: new Date(2012, 1, 1), //Optional
+            to: new Date(2016, 10, 30), //Optional
+            inputDate: new Date(), //Optional
+            mondayFirst: true, //Optional
+            disableWeekdays: [0], //Optional
+            closeOnSelect: true, //Optional
+            templateType: 'popup' //Optional
+        };
 
-
-        addReminderVm.newReminder.reminderDate = $filter('date')(new Date(), 'MM/dd/yyyy');
-        console.log(addReminderVm.newReminder.reminderDate);
-
-        addReminderVm.newReminder.reminderPriority = "medium";
-        addReminderVm.newReminder.reminderDescription = "Description";
 
 
         function priorityChanged() {
@@ -42,8 +66,17 @@
         }
 
         function addNewReminder() {
-            AddReminderDataService.addNewReminder(addReminderVm.newReminder);
+            AddReminderDataService.addNewReminder(addReminderVm.newReminder).then(function() {
+                $state.go('header.viewreminder');
+            }).catch(function() {
+
+            });
         }
+
+        function openDatePicker() {
+            ionicDatePicker.openDatePicker(datepickerConfig);
+        }
+
 
     }
 
