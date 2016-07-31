@@ -2,7 +2,7 @@ var appName = "Recuerda";
 // Ionic Starter App
 
 
-angular.module(appName, ['ionic', 'LocalStorageModule'])
+angular.module(appName, ['ionic', 'LocalStorageModule', 'ionic-datepicker'])
 
 .run(function($ionicPlatform, $rootScope, $state) {
     $rootScope.$state = $state;
@@ -43,7 +43,7 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
 
     // setup an abstract state for the tabs directive
 
-        .state('header', {
+    .state('header', {
         url: "/",
         templateUrl: "app/shared/templates/header.html",
         controller: 'HeaderController as Header',
@@ -122,18 +122,18 @@ angular.module(appName, ['ionic', 'LocalStorageModule'])
     })
 
     .state('header.settings', {
-            url: "settings",
-            parent: 'header',
-            showHeader: true,
-            title: 'Settings',
-            views: {
-                'menuContent': {
-                    templateUrl: "app/settings/templates/settings.html",
-                    controller: 'SettingsController as Settings'
-                }
+        url: "settings",
+        parent: 'header',
+        showHeader: true,
+        title: 'Settings',
+        views: {
+            'menuContent': {
+                templateUrl: "app/settings/templates/settings.html",
+                controller: 'SettingsController as Settings'
             }
+        }
 
-        })
+    })
         .state('header.reminder', {
             url: "reminder",
             parent: 'header',

@@ -10,25 +10,47 @@
      */
     .controller('AddtaskController', Addtask);
 
-    Addtask.$inject = ['$state', '$filter', 'AddTaskDataService'];
+    Addtask.$inject = ['$state', '$filter', 'AddTaskDataService', 'ionicDatePicker'];
 
-    function Addtask($state, $filter, AddTaskDataService) {
+    function Addtask($state, $filter, AddTaskDataService, ionicDatePicker) {
         var addTaskVm = this;
 
         addTaskVm.priorityChanged = priorityChanged;
         addTaskVm.addNewTask = addNewTask;
+        addTaskVm.openDatePicker = openDatePicker;
 
-        addTaskVm.newTask = {}
-        addTaskVm.newTask.taskName = "Enter your Task Here";
+        activate();
 
-        //addTaskVm.newTask.taskDate = new Date();
+        function activate() {
+            addTaskVm.newTask = {}
+            addTaskVm.newTask.taskName = "";
+            addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'MM/dd/yyyy');
+            addTaskVm.newTask.taskPriority = "medium";
+            addTaskVm.newTask.taskDescription = "";
+        }
 
-
-        addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'MM/dd/yyyy');
-        console.log(addTaskVm.newTask.taskDate);
-
-        addTaskVm.newTask.taskPriority = "medium";
-        addTaskVm.newTask.taskDescription = "Description";
+        var datepickerConfig = {
+            callback: function(val) { //Mandatory
+                /*console.log('Return value from the datepicker popup is : ' + val, new Date(val));*/
+                addTaskVm.newTask.taskDate = $filter('date')(new Date(val), 'MM/dd/yyyy');
+            },
+            disabledDates: [ //Optional
+                new Date(2016, 2, 16),
+                new Date(2015, 3, 16),
+                new Date(2015, 4, 16),
+                new Date(2015, 5, 16),
+                new Date('Wednesday, August 12, 2015'),
+                new Date("08-16-2016"),
+                new Date(1439676000000)
+            ],
+            from: new Date(2012, 1, 1), //Optional
+            to: new Date(2016, 10, 30), //Optional
+            inputDate: new Date(), //Optional
+            mondayFirst: true, //Optional
+            disableWeekdays: [0], //Optional
+            closeOnSelect: true, //Optional
+            templateType: 'popup' //Optional
+        };
 
 
         function priorityChanged() {
@@ -43,6 +65,10 @@
 
         function addNewTask() {
             AddTaskDataService.addNewTask(addTaskVm.newTask);
+        }
+
+        function openDatePicker() {
+            ionicDatePicker.openDatePicker(datepickerConfig);
         }
 
     }
