@@ -74,13 +74,14 @@
         var addReminderPersistenceDataService = {
             addNewReminder:addNewReminder
         };
-        
+
         return addReminderPersistenceDataService;
 
         function addNewReminder(newReminder){
+            console.log(newReminder);
             var defer=$q.defer();
             HeaderDataService.getUserUniqueKey().then(function(userUniqueKey){
-                console.log("userUniqueKey:"+userUniqueKey);
+                console.log("userUniqueKey:"+ userUniqueKey);
                 firebase.database().ref(userUniqueKey +"/"+config.firebaseKeys.reminder).push(newReminder);
                 defer.resolve(true);
             });
