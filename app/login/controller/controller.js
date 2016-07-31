@@ -16,8 +16,8 @@
         var loginVm = this;
         // Variable declarations
         loginVm.currentUser = {};
-        loginVm.currentUser.email = "";
-        loginVm.currentUser.password = "";
+        loginVm.currentUser.email = "jeena@gmail.com";
+        loginVm.currentUser.password = "jeena123";
 
         // Function declarations
         loginVm.authinticateUser = authinticateUser;
