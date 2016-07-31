@@ -64,7 +64,12 @@
         }
 
         function addNewTask() {
-            AddTaskDataService.addNewTask(addTaskVm.newTask);
+            //AddTaskDataService.addNewTask(addTaskVm.newTask);
+            AddTaskDataService.addNewTask(addTaskVm.newTask).then(function() {
+                // task added sucess, go to task view page
+            }).catch(function() {
+                // could add, do something else
+            });
         }
 
         function openDatePicker() {

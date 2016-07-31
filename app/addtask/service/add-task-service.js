@@ -15,9 +15,9 @@
 
     .factory('AddTaskPersistenceDataService', AddTaskPersistenceDataService);
 
-    AddTaskDataService.$inject = ['AddTaskClientDataService'];
+    AddTaskDataService.$inject = ['AddTaskClientDataService', 'AddTaskPersistenceDataService'];
 
-    function AddTaskDataService(AddTaskClientDataService) {
+    function AddTaskDataService(AddTaskClientDataService, AddTaskPersistenceDataService) {
         var addTaskDataService = {
             addNewTask: addNewTask
         };
@@ -26,7 +26,7 @@
 
 
         function addNewTask(newTask) {
-            AddTaskClientDataService.addNewTask(newTask);
+            return AddTaskPersistenceDataService.addNewTask(newTask);
         }
 
         /*function getMealListItems() {
@@ -68,10 +68,19 @@
         }
     }
 
-    AddTaskPersistenceDataService.$inject = [];
+    AddTaskPersistenceDataService.$inject = ['$q'];
 
-    function AddTaskPersistenceDataService() {
-        var addTaskPersistenceDataService = {};
+    function AddTaskPersistenceDataService($q) {
+        var addTaskPersistenceDataService = {
+            addNewTask: addNewTask
+        };
         return addTaskPersistenceDataService;
+
+        function addNewTask (newTask) {
+            console.log(newTask);
+            var defer = $q.defer();
+            defer.resolve(true);
+            return defer.promise;
+        }
     }
 })();
