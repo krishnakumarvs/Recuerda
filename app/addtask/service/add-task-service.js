@@ -1,86 +1,86 @@
  (function() {
-    'use strict';
+     'use strict';
 
-    /**
-     * Get Shared module.
-     */
-    angular.module(appName)
+     /**
+      * Get Shared module.
+      */
+     angular.module(appName)
 
-    /**
-     * Add task data service.
-     */
-    .factory('AddTaskDataService', AddTaskDataService)
+     /**
+      * Add task data service.
+      */
+     .factory('AddTaskDataService', AddTaskDataService)
 
-    .factory('AddTaskClientDataService', AddTaskClientDataService)
+     .factory('AddTaskClientDataService', AddTaskClientDataService)
 
-    .factory('AddTaskPersistenceDataService', AddTaskPersistenceDataService);
+     .factory('AddTaskPersistenceDataService', AddTaskPersistenceDataService);
 
-    AddTaskDataService.$inject = ['AddTaskClientDataService', 'AddTaskPersistenceDataService'];
+     AddTaskDataService.$inject = ['AddTaskClientDataService', 'AddTaskPersistenceDataService'];
 
-    function AddTaskDataService(AddTaskClientDataService, AddTaskPersistenceDataService) {
-        var addTaskDataService = {
-            addNewTask: addNewTask
-        };
+     function AddTaskDataService(AddTaskClientDataService, AddTaskPersistenceDataService) {
+         var addTaskDataService = {
+             addNewTask: addNewTask
+         };
 
-        return addTaskDataService;
+         return addTaskDataService;
 
 
-        function addNewTask(newTask) {
-            return AddTaskPersistenceDataService.addNewTask(newTask);
-        }
+         function addNewTask(newTask) {
+             return AddTaskPersistenceDataService.addNewTask(newTask);
+         }
 
-        /*function getMealListItems() {
+         /*function getMealListItems() {
             return MealPLanClientDataService.getMealListItems() || MealPlanPersistenceDataService.getMealListItems();
         }*/
-    }
+     }
 
-    AddTaskClientDataService.$inject = ['$q', 'localStorageService'];
+     AddTaskClientDataService.$inject = ['$q', 'localStorageService'];
 
-    function AddTaskClientDataService($q, localStorageService) {
-        var addTaskClientDataService = {
-            addNewTask: addNewTask
-        };
-        return addTaskClientDataService;
+     function AddTaskClientDataService($q, localStorageService) {
+         var addTaskClientDataService = {
+             addNewTask: addNewTask
+         };
+         return addTaskClientDataService;
 
-        function addNewTask(newTask) {
-            console.log(newTask);
-            var previousTasks = localStorageService.get("allTasks");
-            if (previousTasks) {
+         function addNewTask(newTask) {
+             console.log(newTask);
+             var previousTasks = localStorageService.get("allTasks");
+             if (previousTasks) {
 
-            } else {
-                previousTasks = [];
-            }
-            previousTasks.push(newTask);
-            localStorageService.set("allTasks", previousTasks);
-        }
+             } else {
+                 previousTasks = [];
+             }
+             previousTasks.push(newTask);
+             localStorageService.set("allTasks", previousTasks);
+         }
 
 
-        function getPreviousDayTotalPoints() {
-            var localStorageEntry = localStorageService.get("hirs.allPoints");
-            var previousDayTotalPoints = 0;
-            if (localStorageEntry) {
-                var lastSendDate = Object.keys(localStorageEntry)[Object.keys(localStorageEntry).length - 1];
-                if (lastSendDate) {
-                    previousDayTotalPoints = (localStorageEntry[lastSendDate].total_point) ? localStorageEntry[lastSendDate].total_point : 0;
-                }
-            }
-            return previousDayTotalPoints;
-        }
-    }
+         function getPreviousDayTotalPoints() {
+             var localStorageEntry = localStorageService.get("hirs.allPoints");
+             var previousDayTotalPoints = 0;
+             if (localStorageEntry) {
+                 var lastSendDate = Object.keys(localStorageEntry)[Object.keys(localStorageEntry).length - 1];
+                 if (lastSendDate) {
+                     previousDayTotalPoints = (localStorageEntry[lastSendDate].total_point) ? localStorageEntry[lastSendDate].total_point : 0;
+                 }
+             }
+             return previousDayTotalPoints;
+         }
+     }
 
-    AddTaskPersistenceDataService.$inject = ['$q'];
+     AddTaskPersistenceDataService.$inject = ['$q'];
 
-    function AddTaskPersistenceDataService($q) {
-        var addTaskPersistenceDataService = {
-            addNewTask: addNewTask
-        };
-        return addTaskPersistenceDataService;
+     function AddTaskPersistenceDataService($q) {
+         var addTaskPersistenceDataService = {
+             addNewTask: addNewTask
+         };
+         return addTaskPersistenceDataService;
 
-        function addNewTask (newTask) {
-            console.log(newTask);
-            var defer = $q.defer();
-            defer.resolve(true);
-            return defer.promise;
-        }
-    }
-})();
+         function addNewTask(newTask) {
+             console.log(newTask);
+             var defer = $q.defer();
+             defer.resolve(true);
+             return defer.promise;
+         }
+     }
+ })();
