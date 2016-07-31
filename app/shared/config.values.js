@@ -10,9 +10,15 @@
         userDetails: "userDetails"
     };
 
+    var firebaseKeys = {
+        reminder: "reminder",
+        task: "task"
+    };
+
     var config = {
         uiMessages: uiMessages,
-        localStorageKeys: localStorageKeys
+        localStorageKeys: localStorageKeys,
+        firebaseKeys: firebaseKeys
     };
 
     angular.module(appName).value('config', config);

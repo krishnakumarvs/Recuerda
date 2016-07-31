@@ -68,9 +68,9 @@
          }
      }
 
-     AddTaskPersistenceDataService.$inject = ['$q'];
+     AddTaskPersistenceDataService.$inject = ['$q', 'config', 'HeaderDataService'];
 
-     function AddTaskPersistenceDataService($q) {
+     function AddTaskPersistenceDataService($q, config, HeaderDataService) {
          var addTaskPersistenceDataService = {
              addNewTask: addNewTask
          };
@@ -79,7 +79,12 @@
          function addNewTask(newTask) {
              console.log(newTask);
              var defer = $q.defer();
-             defer.resolve(true);
+
+             HeaderDataService.getUserUniqueKey().then(function(userUniqueKey) {
+                 console.log("userUniqueKey : " + userUniqueKey);
+                 firebase.database().ref(userUniqueKey + "/" + config.firebaseKeys.task).push(newTask);
+                 defer.resolve(true);
+             });
              return defer.promise;
          }
      }

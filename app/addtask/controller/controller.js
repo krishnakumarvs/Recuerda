@@ -18,7 +18,6 @@
         addTaskVm.priorityChanged = priorityChanged;
         addTaskVm.addNewTask = addNewTask;
         addTaskVm.openDatePicker = openDatePicker;
-
         activate();
 
         function activate() {
@@ -26,6 +25,7 @@
             addTaskVm.newTask.taskName = "";
             addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'MM/dd/yyyy');
             addTaskVm.newTask.taskPriority = "medium";
+            addTaskVm.newTask.priorityBar = 50;
             addTaskVm.newTask.taskDescription = "";
         }
 
@@ -68,7 +68,7 @@
                 //AddTaskDataService.addNewTask(addTaskVm.newTask);
                 AddTaskDataService.addNewTask(addTaskVm.newTask).then(function() {
                     // task added sucess, go to task view page
-
+                    $state.go('header.viewtask');
                 }).catch(function() {
                     // could add, do something else
                 });
