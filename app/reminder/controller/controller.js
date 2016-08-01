@@ -8,46 +8,56 @@
         /**
          * Login Controller.
          */
-        .controller('ReminderController',Reminder);
+        .controller('ReminderController', Reminder);
 
-    Reminder.$inject = ['$state'];
+    Reminder.$inject = ['$state', 'ReminderDataService'];
 
-    function Reminder($state) {
+    function Reminder($state, ReminderDataService) {
         var reminderVm = this;
+        activate();
 
+        function activate() {
+            ReminderDataService.getAllReminders().then(function(allReminders) {
+                console.log(allReminders);
+            });
+        }
 
         var reminder = [{
                 name: "Buy apple",
                 date: "today ",
-                description:"hhhkjd hjdk"
+                description: "hhhkjd hjdk"
 
             },
 
             {
                 name: "Get job",
                 date: "tomorrow",
-                description:"hhhkjd hjdk"
+                description: "hhhkjd hjdk"
 
 
             }, {
                 name: "Class meeting",
                 date: "6.07.2016",
-                description:"hhhkjd hjdk"
+                description: "hhhkjd hjdk"
 
             }
         ];
         reminderVm.reminder = reminder;
-        function addReminder(){
-            
-             $state.go('header.addreminder')
-        }
-        reminderVm.addReminder=addReminder;
 
-         function GotoViewReminder(){
+        function addReminder() {
+
+            $state.go('header.addreminder')
+        }
+        reminderVm.addReminder = addReminder;
+
+        function GotoViewReminder() {
             $state.go('header.viewreminder')
         }
         reminderVm.GotoViewReminder = GotoViewReminder;
 
+        function getAllReminders() {
+            ReminderDataService.getAllReminders();
+        }
 
         /*loginVm.reg_num = "234";
         loginVm.password = "123"
