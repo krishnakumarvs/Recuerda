@@ -10,18 +10,18 @@
          */
         .controller('ReminderController', Reminder);
 
-    Reminder.$inject = ['$state', 'ReminderDataService'];
+    Reminder.$inject = ['$state', 'ReminderDataService','ReminderPersistenceDataService'];
 
-    function Reminder($state, ReminderDataService) {
+    function Reminder($state, ReminderDataService,ReminderPersistenceDataService) {
         var reminderVm = this;
         activate();
 
         function activate() {
             ReminderDataService.getAllReminders().then(function(allReminders) {
                 console.log(allReminders);
+                reminderVm.reminder = allReminders;
             });
         }
-
         var reminder = [{
                 name: "Buy apple",
                 date: "today ",
@@ -42,7 +42,7 @@
 
             }
         ];
-        reminderVm.reminder = reminder;
+        //reminderVm.reminder = reminder;
 
         function addReminder() {
 
