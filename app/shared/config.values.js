@@ -7,7 +7,9 @@
     };
 
     var localStorageKeys = {
-        userDetails: "userDetails"
+        userDetails: "userDetails",
+        taskDetails: "taskDetails",
+        reminderDetails:"reminderDetails"
     };
 
     var firebaseKeys = {
