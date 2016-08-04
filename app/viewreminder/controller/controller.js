@@ -10,11 +10,24 @@
          */
         .controller('ViewReminderController', ViewReminder);
 //<script src="TaskPageController.js"></script>//
-    ViewReminder.$inject = ['$state'];
+    ViewReminder.$inject = ['$state','$filter','ViewReminderDataService'];
 
-    function ViewReminder($state) {
+    function ViewReminder($state,$filter,ViewReminderDataService) {
         var viewReminderVm = this;
+        viewReminderVm.getReminderDetails = {};
+        activate();
+        function activate() {
+            ViewReminderDataService.getReminderDetails().then(function(reminderDetails) {
+                console.log(reminderDetails);
+                viewReminderVm.getReminderDetails.reminderName = reminderDetails.reminderName;
+                viewReminderVm.getReminderDetails.reminderDescription = reminderDetails.reminderDescription;
+                viewReminderVm.getReminderDetails.reminderDate = reminderDetails.reminderDate;
+                viewReminderVm.getReminderDetails.reminderPriority = reminderDetails.reminderPriority;
 
+            }).catch(function(error) {
+                // No user details found which means user haven't registered
+            });
+        }
 
         // var viewReminder = [{
         //     name: "Buy apple",
