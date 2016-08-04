@@ -66,11 +66,15 @@
         }
 
         function addNewReminder() {
-            AddReminderDataService.addNewReminder(addReminderVm.newReminder).then(function() {
-                $state.go('header.viewreminder');
-            }).catch(function() {
+            if (addReminderVm.newReminder.reminderName != "" && addReminderVm.newReminder.reminderDate != "" && addReminderVm.newReminder.reminderDescription != "") {
+                AddReminderDataService.addNewReminder(addReminderVm.newReminder).then(function() {
+                    $state.go('header.viewreminder');
+                }).catch(function() {
 
-            });
+                });
+            } else {
+                alert("enter the details");
+            }
         }
 
         function openDatePicker() {
