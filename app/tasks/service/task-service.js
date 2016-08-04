@@ -19,12 +19,16 @@
 
     function TaskDataService(TaskClientDataService, TaskPersistenceDataService) {
         var taskDataService = {
-            getAllTasks: getAllTasks
+            getAllTasks: getAllTasks,
+            storeTaskDetails: storeTaskDetails
         };
         return taskDataService;
 
         function getAllTasks() {
             return TaskPersistenceDataService.getAllTasks();
+        }
+        function storeTaskDetails(taskDetails){
+            return TaskClientDataService.storeTaskDetails(taskDetails);
         }
 
 
@@ -34,18 +38,27 @@
 
     function TaskClientDataService($q, localStorageService, config) {
         var taskClientDataService = {
-            getAllTasks: getAllTasks
+            getAllTasks: getAllTasks,
+            storeTaskDetails:storeTaskDetails
         };
         return taskClientDataService;
 
         function getAllTasks() {
             var defer = $q.defer();
-            var taskrDetails = localStorageService.get(config.localStorageKeys.userDetails);
+            var taskDetails = localStorageService.get(config.localStorageKeys.userDetails);
             defer.resolve(taskDetails);
 
 
 
             return defer.promise;
+        }
+         function storeTaskDetails(taskDetails){
+            var defer = $q.defer();
+             localStorageService.set(config.localStorageKeys.taskDetails, taskDetails);
+             //console.log(111);
+             //console.log(taskDetails);
+             defer.resolve(true);
+             return defer.promise;
         }
 
 
@@ -64,16 +77,12 @@
             console.log("userUniqueKey");
             HeaderDataService.getUserUniqueKey().then(function(userUniqueKey) {
                 console.log("userUniqueKey : " + userUniqueKey);
-
-                var ref = firebase.database().ref(userUniqueKey + "/" + "task").orderByChild("creation");
-
+                var ref = firebase.database().ref(userUniqueKey + "/" + config.firebaseKeys.task).orderByChild("creation");
                 var query;
                 query = ref.equalTo(null);
-
-                query.once("value", function(dataSnapshot) {
-                    //console.log(dataSnapshot.val());
-                    defer.resolve(dataSnapshot.val());
-
+                query.once("value", function(dataFetch) {
+                    //console.log(dataFetch.val());
+                    defer.resolve(dataFetch.val());
                 }, function(error) {
                     console.log(error);
                 });

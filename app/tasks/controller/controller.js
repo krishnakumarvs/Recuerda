@@ -51,8 +51,15 @@
 
         tasksVm.addTask = addTask;
 
-        function GotoViewTask() {
-            $state.go('header.viewtask')
+        function GotoViewTask(item) {
+            //console.log(item);
+             TaskDataService.storeTaskDetails(item).then(function() {
+                        $state.go('header.viewtask')
+                    }).catch(function() {
+                       
+                    });
+                
+            
         }
         tasksVm.GotoViewTask = GotoViewTask;
 
