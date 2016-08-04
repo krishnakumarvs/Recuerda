@@ -50,8 +50,13 @@
         }
         reminderVm.addReminder = addReminder;
 
-        function GotoViewReminder() {
-            $state.go('header.viewreminder')
+        function GotoViewReminder(item) {
+            ReminderDataService.storeReminderDetails(item).then(function() {
+                       $state.go('header.viewreminder')
+                    }).catch(function() {
+                       
+                    });
+            
         }
         reminderVm.GotoViewReminder = GotoViewReminder;
 
