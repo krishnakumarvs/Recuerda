@@ -10,9 +10,9 @@
          */
         .controller('ReminderController', Reminder);
 
-    Reminder.$inject = ['$state', 'ReminderDataService','ReminderPersistenceDataService'];
+    Reminder.$inject = ['$state', 'ReminderDataService', 'ReminderPersistenceDataService'];
 
-    function Reminder($state, ReminderDataService,ReminderPersistenceDataService) {
+    function Reminder($state, ReminderDataService, ReminderPersistenceDataService) {
         var reminderVm = this;
         activate();
 
