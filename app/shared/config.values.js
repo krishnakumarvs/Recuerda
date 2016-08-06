@@ -9,7 +9,19 @@
     var localStorageKeys = {
         userDetails: "userDetails",
         taskDetails: "taskDetails",
-        reminderDetails:"reminderDetails"
+        reminderDetails: "reminderDetails"
+    };
+
+    var priority = {
+        high: "high",
+        medium: "medium",
+        low: "low"
+    };
+
+    var generalStatus = {
+        created: 0,
+        completed: 1,
+        deleted: 2
     };
 
     var firebaseKeys = {
@@ -20,7 +32,9 @@
     var config = {
         uiMessages: uiMessages,
         localStorageKeys: localStorageKeys,
-        firebaseKeys: firebaseKeys
+        firebaseKeys: firebaseKeys,
+        priority: priority,
+        generalStatus: generalStatus
     };
 
     angular.module(appName).value('config', config);

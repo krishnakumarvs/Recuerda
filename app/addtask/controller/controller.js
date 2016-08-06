@@ -10,9 +10,9 @@
      */
     .controller('AddtaskController', Addtask);
 
-    Addtask.$inject = ['$state', '$filter', 'AddTaskDataService', 'ionicDatePicker'];
+    Addtask.$inject = ['$state', '$filter', 'AddTaskDataService', 'ionicDatePicker', 'config'];
 
-    function Addtask($state, $filter, AddTaskDataService, ionicDatePicker) {
+    function Addtask($state, $filter, AddTaskDataService, ionicDatePicker, config) {
         var addTaskVm = this;
 
         addTaskVm.priorityChanged = priorityChanged;
@@ -23,10 +23,12 @@
         function activate() {
             addTaskVm.newTask = {}
             addTaskVm.newTask.taskName = "";
-            addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'MM/dd/yyyy');
-            addTaskVm.newTask.taskPriority = "medium";
+            addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'dd/MM/yyyy');
+            addTaskVm.newTask.taskDateMilli = new Date().getTime();
+            addTaskVm.newTask.taskPriority = config.priority.medium;
             addTaskVm.newTask.priorityBar = 50;
             addTaskVm.newTask.taskDescription = "";
+            addTaskVm.newTask.status = config.generalStatus.created;
         }
 
         var datepickerConfig = {
@@ -55,11 +57,11 @@
 
         function priorityChanged() {
             if (addTaskVm.newTask.priorityBar > 0 && addTaskVm.newTask.priorityBar <= 35) {
-                addTaskVm.newTask.taskPriority = "low";
+                addTaskVm.newTask.taskPriority = config.priority.low;
             } else if (addTaskVm.newTask.priorityBar > 35 && addTaskVm.newTask.priorityBar <= 70) {
-                addTaskVm.newTask.taskPriority = "medium";
+                addTaskVm.newTask.taskPriority = config.priority.medium;
             } else if (addTaskVm.newTask.priorityBar > 70 && addTaskVm.newTask.priorityBar <= 100) {
-                addTaskVm.newTask.taskPriority = "high";
+                addTaskVm.newTask.taskPriority = config.priority.high;
             }
         }
 
