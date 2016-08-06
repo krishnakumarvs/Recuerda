@@ -10,12 +10,13 @@
      */
     .controller('TaskPageController', Tasks);
 
-    Tasks.$inject = ['$state','TaskDataService','TaskPersistenceDataService'];
+    Tasks.$inject = ['$state', 'TaskDataService', 'TaskPersistenceDataService'];
 
-    function Tasks($state,TaskDataService,TaskPersistenceDataService){
+    function Tasks($state, TaskDataService, TaskPersistenceDataService) {
         var tasksVm = this;
         activate();
-        function activate(){
+
+        function activate() {
             TaskDataService.getAllTasks().then(function(allTasks) {
                 console.log(allTasks);
                 tasksVm.tasks = allTasks;
@@ -26,19 +27,19 @@
         var tasks = [{
             name: "Buy apple",
             date: "today ",
-            description:"Etiam sit ametb fbf"
+            description: "Etiam sit ametb fbf"
         }, {
             name: "book flight tckt",
             date: "today",
-            description:"Etiam sit amet dfdfd dfrdgtfjh"
+            description: "Etiam sit amet dfdfd dfrdgtfjh"
         }, {
             name: "Get job",
             date: "tomorrow",
-            description:"Etiam sit amet fgfbf sdfrdfgdv"
+            description: "Etiam sit amet fgfbf sdfrdfgdv"
         }, {
             name: "Marriage function",
             date: "sunday",
-            description:"Etiam sit amet vfgbftfgh dvdfgdrfgdf"
+            description: "Etiam sit amet vfgbftfgh dvdfgdrfgdf"
 
         }];
 
@@ -53,13 +54,13 @@
 
         function GotoViewTask(item) {
             //console.log(item);
-             TaskDataService.storeTaskDetails(item).then(function() {
-                        $state.go('header.viewtask')
-                    }).catch(function() {
-                       
-                    });
-                
-            
+            TaskDataService.storeTaskDetails(item).then(function() {
+                $state.go('header.viewtask')
+            }).catch(function() {
+
+            });
+
+
         }
         tasksVm.GotoViewTask = GotoViewTask;
 
