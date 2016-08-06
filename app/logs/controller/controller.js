@@ -32,6 +32,10 @@
                 // No user details found which means user haven't registered
             });
 
+        }
+
+        function reminderClicked() {
+            
             LogsDataService.getReminderDetails().then(function(reminderDetails) {
                 console.log(reminderDetails);
                 viewReminderVm.getReminderDetails.reminderName = reminderDetails.reminderName;
@@ -42,10 +46,7 @@
             }).catch(function(error) {
                 // No user details found which means user haven't registered
             });
-        }
 
-        function reminderClicked() {
-           
         }
 
         function tasksClicked() {
