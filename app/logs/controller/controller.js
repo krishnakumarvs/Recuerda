@@ -1,5 +1,3 @@
-
-
 (function() {
     'use strict';
 
@@ -7,77 +5,60 @@
      * Get the main module (shared for Workout).
      */
     angular.module(appName)
-    /**
-     * Login Controller.
-     */
-    .controller('LogsController', Logs);
+        /**
+         * Login Controller.
+         */
+        .controller('LogsController', Logs);
 
-    Logs.$inject = ['$state'];
+    Logs.$inject = ['$state', '$filter', 'LogsDataService'];
 
-    function Logs($state) {
+    function Logs($state, $filter, LogsDataService) {
         var logsVm = this;
-        logsVm.allItems=reminder;
-        logsVm.reminderClicked=reminderClicked;
-        logsVm.tasksClicked=tasksClicked;
+        logsVm.reminderClicked = reminderClicked;
+        logsVm.tasksClicked = tasksClicked;
+        logsVm.getTaskDetails = {};
 
-        var reminder  = [
-        {
-            name : "gfh",
-            date : "123",
-            status: "done"
-        },
-        {
-            name : "bak",
-            date : "123",
-            status: "done"
-        },
-        {
-            name : "dLjddaj",
-            date : "123",
-            status: "done"
-        }
-        ];
-        var tasks= [
-        {
-            name : "ada",
-            date : "123",
-            status: "done"
-        }
-        ];
+        activate();
 
-        logsVm.allItems=reminder;
-        function reminderClicked(){
-            logsVm.allItems=reminder;
-        }
-        function tasksClicked(){
-            logsVm.allItems=tasks;
-        }
-        
-        /*loginVm.reg_num = "234";
-        loginVm.password = "123"
+        function activate() {
+            LogsDataService.getTaskDetails().then(function(taskDetails) {
+                console.log(taskDetails);
+                logsVm.getTaskDetails.taskName = taskDetails.taskName;
+                logsVm.getTaskDetails.taskDescription = taskDetails.taskDescription;
+                logsVm.getTaskDetails.taskDate = taskDetails.taskDate;
+                logsVm.getTaskDetails.taskPriority = taskDetails.taskPriority;
 
-        loginVm.authenticateUser = authenticateUser;
-        activate();*/
-
-        /*function activate() {
-            APIServices.getStudentProfile().then(function(response) {
-                console.log(response);
-                if (response) {
-                    $state.go("header.dashboard");
-                }
+            }).catch(function(error) {
+                // No user details found which means user haven't registered
             });
-        }*/
 
-        /*function authenticateUser() {
-            APIServices.login(loginVm.reg_num, loginVm.password).then(function(result) {
-                if (result == "password_wrong") {
-                    alert("Password is wrong");
-                } else if (result == "no_such_reg_num") {
-                    alert("No such register number")
-                } else {
-                    $state.go("header.dashboard");
-                }
+            LogsDataService.getReminderDetails().then(function(reminderDetails) {
+                console.log(reminderDetails);
+                viewReminderVm.getReminderDetails.reminderName = reminderDetails.reminderName;
+                viewReminderVm.getReminderDetails.reminderDescription = reminderDetails.reminderDescription;
+                viewReminderVm.getReminderDetails.reminderDate = reminderDetails.reminderDate;
+                viewReminderVm.getReminderDetails.reminderPriority = reminderDetails.reminderPriority;
+
+            }).catch(function(error) {
+                // No user details found which means user haven't registered
             });
-        }*/
+        }
+
+        function reminderClicked() {
+           
+        }
+
+        function tasksClicked() {
+            LogsDataService.getTaskDetails().then(function(taskDetails) {
+                console.log(taskDetails);
+                logsVm.getTaskDetails.taskName = taskDetails.taskName;
+                logsVm.getTaskDetails.taskDescription = taskDetails.taskDescription;
+                logsVm.getTaskDetails.taskDate = taskDetails.taskDate;
+                logsVm.getTaskDetails.taskPriority = taskDetails.taskPriority;
+
+            }).catch(function(error) {
+                // No user details found which means user haven't registered
+            });
+        }
     }
 })();
