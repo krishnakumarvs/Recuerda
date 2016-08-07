@@ -17,6 +17,7 @@
         logsVm.reminderClicked = reminderClicked;
         logsVm.tasksClicked = tasksClicked;
         logsVm.getTaskDetails = {};
+        logsVm.getReminderDetails={};
 
         activate();
 
@@ -37,6 +38,7 @@
         function reminderClicked() {
             
             LogsDataService.getReminderDetails().then(function(reminderDetails) {
+                console.log(11);
                 console.log(reminderDetails);
                 viewReminderVm.getReminderDetails.reminderName = reminderDetails.reminderName;
                 viewReminderVm.getReminderDetails.reminderDescription = reminderDetails.reminderDescription;
@@ -44,6 +46,7 @@
                 viewReminderVm.getReminderDetails.reminderPriority = reminderDetails.reminderPriority;
 
             }).catch(function(error) {
+                console.log(1111);
                 // No user details found which means user haven't registered
             });
 
