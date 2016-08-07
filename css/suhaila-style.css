@@ -9,3 +9,7 @@ img.user-image-style {
     color: rgb(247, 251, 252);
     margin: 5px;
 }
+.col.loginOrSignup {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
