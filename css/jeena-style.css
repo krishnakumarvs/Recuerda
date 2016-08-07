@@ -33,18 +33,8 @@ button.button.button-block.button-royal.button-facebook{
 	color: white;
 	background-color: #3c599f;
 }
-input.userimage{
-	background-image: url("../img/user.png") ;
-	background-repeat: no-repeat;
-	background-color: #82a15e;
-	 padding-left: 70px;
-}
-input.passwordimage{
-	background-image: url("../img/password.png");
-	background-repeat: no-repeat;
-	background-color: #82a15e;
-	 padding-left: 70px;
-}
+
+
 .col.registrationTitle{
 	margin-top: 70px;
 	font-size: 20px;

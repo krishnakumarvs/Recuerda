@@ -13,3 +13,15 @@ img.user-image-style {
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
 }
+input.userimage {
+    background-image: url("../img/user.png");
+    background-repeat: no-repeat;
+    background-color: #789169;
+    padding-left: 58px;
+}
+input.passwordimage{
+	background-image: url("../img/password.png");
+	background-repeat: no-repeat;
+	background-color: #789169;
+	 padding-left: 58px;
+}
