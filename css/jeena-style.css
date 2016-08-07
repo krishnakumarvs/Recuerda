@@ -96,7 +96,7 @@ button.button-radius{
 }
 input.placeholder-background {
 	background-color: #64775b;
-	color:#a5aaa4;
+	color: white;
 	padding-left: 40px;
 }
 img.clock{
@@ -106,7 +106,7 @@ img.clock{
 }
 textarea.placeholder-background {
 	background-color: #64775b;
-	color:#a5aaa4;
+	color: white;
 	padding-left: 40px;
 }
 .button-background{
@@ -149,4 +149,7 @@ input.margin-bottom-20{
 }
 col-20.text-align-center.color-change.margin-top-10.ng-binding {
     margin-left: 14px;
+}
+.fontchange{
+	color: white !important;
 }
