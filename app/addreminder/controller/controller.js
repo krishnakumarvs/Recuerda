@@ -33,7 +33,7 @@
         var datepickerConfig = {
             callback: function(val) { //Mandatory
                 /*console.log('Return value from the datepicker popup is : ' + val, new Date(val));*/
-                addReminderVm.newReminder.reminderDate = $filter('date')(new Date(val), 'MM/dd/yyyy');
+                addReminderVm.newReminder.reminderDate = $filter('date')(new Date(val), 'dd/MM/yyyy');
             },
             disabledDates: [ //Optional
                 new Date(2016, 2, 16),
@@ -68,7 +68,7 @@
         function addNewReminder() {
             if (addReminderVm.newReminder.reminderName != "" && addReminderVm.newReminder.reminderDate != "" && addReminderVm.newReminder.reminderDescription != "") {
                 AddReminderDataService.addNewReminder(addReminderVm.newReminder).then(function() {
-                    $state.go('header.viewreminder');
+                    $state.go('header.reminder');
                 }).catch(function() {
 
                 });

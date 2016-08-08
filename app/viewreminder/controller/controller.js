@@ -15,6 +15,7 @@
     function ViewReminder($state,$filter,ViewReminderDataService) {
         var viewReminderVm = this;
         viewReminderVm.getReminderDetails = {};
+         viewReminderVm.getDay = getDay;
         activate();
         function activate() {
             ViewReminderDataService.getReminderDetails().then(function(reminderDetails) {
@@ -27,6 +28,24 @@
             }).catch(function(error) {
                 // No user details found which means user haven't registered
             });
+        }
+        function getDay() {
+            var a = new Date().getTime();
+         console.log(a); // Now
+            // console.log(a.toString());
+            var b = new Date(viewReminderVm.getReminderDetails.reminderDate);
+            var d = (b - a); 
+            console.log(b);
+             //console.log(111);
+            if (d > 0) {
+                // difference in milliseconds 
+                var oneDay = 24 * 60 * 60 * 1000;
+                var w = parseInt((d / oneDay)+1);
+               // console.log(d / oneDay);
+            } else if (d < 0) {
+               var w=0;
+            }
+            return w;
         }
 
         // var viewReminder = [{

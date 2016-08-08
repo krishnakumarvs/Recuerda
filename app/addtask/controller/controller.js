@@ -70,7 +70,7 @@
                 //AddTaskDataService.addNewTask(addTaskVm.newTask);
                 AddTaskDataService.addNewTask(addTaskVm.newTask).then(function() {
                     // task added sucess, go to task view page
-                    $state.go('header.viewtask');
+                    $state.go('header.tasks');
                 }).catch(function() {
                     // could add, do something else
                 });
