@@ -58,7 +58,7 @@ input.emailimage{
 }
 .task-style{
 	color: white;
-	margin-top: 20px;
+	
 }
 .text-align-center{
 	text-align: center;
@@ -152,4 +152,11 @@ col-20.text-align-center.color-change.margin-top-10.ng-binding {
 }
 .fontchange{
 	color: white !important;
+}
+.list {
+    position: relative !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0 !important;
+    margin-bottom: 0px !important;
 }

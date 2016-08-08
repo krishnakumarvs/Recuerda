@@ -14,12 +14,23 @@
 			  </div>
 			  <div class="col-10"></div>
 			</div>
-            	<ul class="list" ng-repeat="item in Logs.allItems">
+            	<ul class="list" ng-repeat="item in Logs.taskLogs">
     				<li class="item border">
     					<div class="row color-change">
-      						<div class="col-33 align-left">{{item.name}}</div>
-      						<div class="col-33 align-center">{{item.date}}</div>
-      						<div class="col-33 align-right">{{item.status}}</div>
+      						<div class="col">{{item.taskName}}</div>
+      						<div class="col">{{item.taskDate}}</div>
+      						<div class="col">{{item.status}}</div>
+      						<div class="col">{{item.taskPriority}}</div>
+      					</div>
+   				 	</li>
+				</ul>
+				<ul class="list" ng-repeat="item in Logs.reminderLogs">
+    				<li class="item border">
+    					<div class="row color-change">
+      						<div class="col">{{item.reminderName}}</div>
+      						<div class="col">{{item.reminderDate}}</div>
+      						<div class="col">{{item.status}}</div>
+      						<div class="col">{{item.reminderPriority}}</div>
       					</div>
    				 	</li>
 				</ul>

@@ -15,22 +15,22 @@
 
     .factory('LogsPersistenceDataService', LogsPersistenceDataService);
 
-    LogsDataService.$inject = ['LogsClientDataService'];
+    LogsDataService.$inject = ['LogsClientDataService', 'LogsPersistenceDataService'];
 
-    function LogsDataService(LogsClientDataService) {
+    function LogsDataService(LogsClientDataService, LogsPersistenceDataService) {
         var logsDataService = {
-            getTaskDetails: getTaskDetails,
-            getReminderDetails: getReminderDetails
+            tasksClicked: tasksClicked,
+            reminderClicked: reminderClicked
         };
 
         return logsDataService;
 
-        function getTaskDetails() {
-            return LogsClientDataService.getTaskDetails();
+        function tasksClicked() {
+            return LogsPersistenceDataService.tasksClicked();
         }
 
-        function getReminderDetails() {
-            return LogsClientDataService.getReminderDetails();
+        function reminderClicked() {
+            return LogsPersistenceDataService.reminderClicked();
         }
 
 
@@ -40,12 +40,12 @@
 
     function LogsClientDataService($q, localStorageService, config) {
         var logsClientDataService = {
-            getTaskDetails: getTaskDetails,
+            tasksClicked: tasksClicked,
             getReminderDetails: getReminderDetails
         };
         return logsClientDataService;
 
-        function getTaskDetails() {
+        function tasksClicked() {
             console.log(111);
             var defer = $q.defer();
             var taskDetails = localStorageService.get(config.localStorageKeys.taskDetails);
@@ -69,15 +69,53 @@
             }
             return defer.promise;
         }
-
-
-
     }
 
-    LogsPersistenceDataService.$inject = [];
+    LogsPersistenceDataService.$inject = ['$q', 'config', 'HeaderDataService'];
 
-    function LogsPersistenceDataService() {
-        var newProfilePersistenceDataService = {};
-        return LogsPersistenceDataService;
+    function LogsPersistenceDataService($q, config, HeaderDataService) {
+        var logsPersistenceDataService = {
+            tasksClicked: tasksClicked,
+            reminderClicked: reminderClicked
+        };
+        return logsPersistenceDataService;
+
+        function tasksClicked() {
+            var defer = $q.defer();
+            console.log("userUniqueKey");
+            HeaderDataService.getUserUniqueKey().then(function(userUniqueKey) {
+                console.log("userUniqueKey : " + userUniqueKey);
+                var ref = firebase.database().ref(userUniqueKey + "/" + config.firebaseKeys.task).orderByChild("creation");
+                var query;
+                query = ref.equalTo(null);
+                query.once("value", function(dataFetch) {
+                    console.log(dataFetch.val());
+                    defer.resolve(dataFetch.val());
+                }, function(error) {
+                    console.log(error);
+                });
+
+            });
+            return defer.promise;
+        }
+
+        function reminderClicked() {
+            var defer = $q.defer();
+            console.log("userUniqueKey");
+            HeaderDataService.getUserUniqueKey().then(function(userUniqueKey) {
+                console.log("userUniqueKey : " + userUniqueKey);
+                var ref = firebase.database().ref(userUniqueKey + "/" + config.firebaseKeys.reminder).orderByChild("creation");
+                var query;
+                query = ref.equalTo(null);
+                query.once("value", function(dataFetch) {
+                    console.log(dataFetch.val());
+                    defer.resolve(dataFetch.val());
+                }, function(error) {
+                    console.log(error);
+                });
+
+            });
+            return defer.promise;
+        }
     }
 })();

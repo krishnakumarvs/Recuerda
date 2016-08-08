@@ -10,41 +10,21 @@
          */
         .controller('LogsController', Logs);
 
-    Logs.$inject = ['$state', '$filter', 'LogsDataService'];
+    Logs.$inject = ['$state', 'LogsPersistenceDataService', 'LogsDataService'];
 
-    function Logs($state, $filter, LogsDataService) {
+    function Logs($state, LogsPersistenceDataService, LogsDataService) {
         var logsVm = this;
-        logsVm.reminderClicked = reminderClicked;
+        var taskLogs = [];
+        var reminderLogs = [];
         logsVm.tasksClicked = tasksClicked;
-        logsVm.getTaskDetails = {};
-        logsVm.getReminderDetails={};
-
-        activate();
-
-        function activate() {
-            LogsDataService.getTaskDetails().then(function(taskDetails) {
-                console.log(taskDetails);
-                logsVm.getTaskDetails.taskName = taskDetails.taskName;
-                logsVm.getTaskDetails.taskDescription = taskDetails.taskDescription;
-                logsVm.getTaskDetails.taskDate = taskDetails.taskDate;
-                logsVm.getTaskDetails.taskPriority = taskDetails.taskPriority;
-
-            }).catch(function(error) {
-                // No user details found which means user haven't registered
-            });
-
-        }
+        logsVm.reminderClicked = reminderClicked;
 
         function reminderClicked() {
-            
-            LogsDataService.getReminderDetails().then(function(reminderDetails) {
-                console.log(11);
-                console.log(reminderDetails);
-                viewReminderVm.getReminderDetails.reminderName = reminderDetails.reminderName;
-                viewReminderVm.getReminderDetails.reminderDescription = reminderDetails.reminderDescription;
-                viewReminderVm.getReminderDetails.reminderDate = reminderDetails.reminderDate;
-                viewReminderVm.getReminderDetails.reminderPriority = reminderDetails.reminderPriority;
-
+            LogsDataService.reminderClicked().then(function(reminderDetails) {
+               //console.log(11);
+                logsVm.taskLogs="";
+                //console.log(reminderDetails);
+                logsVm.reminderLogs = reminderDetails;
             }).catch(function(error) {
                 console.log(1111);
                 // No user details found which means user haven't registered
@@ -53,14 +33,12 @@
         }
 
         function tasksClicked() {
-            LogsDataService.getTaskDetails().then(function(taskDetails) {
-                console.log(taskDetails);
-                logsVm.getTaskDetails.taskName = taskDetails.taskName;
-                logsVm.getTaskDetails.taskDescription = taskDetails.taskDescription;
-                logsVm.getTaskDetails.taskDate = taskDetails.taskDate;
-                logsVm.getTaskDetails.taskPriority = taskDetails.taskPriority;
-
+            LogsDataService.tasksClicked().then(function(allTasks) {
+                logsVm.reminderLogs="";
+                //console.log(allTasks);
+                logsVm.taskLogs = allTasks;
             }).catch(function(error) {
+               // console.log(1111);
                 // No user details found which means user haven't registered
             });
         }
