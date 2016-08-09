@@ -24,6 +24,7 @@
 		            			<div class="row">
 		            				<div class="col color-change">{{item.reminderDescription}}</div>
 		            			</div>
+		            			<div class="col" ng-class="{'red':(item.reminderPriority=='high'),'red-lighter':(item.reminderPriority=='medium'),'verylighter':(item.reminderPriority=='low')}"></div>
 		            		</div>
 		            		
 		            	</div>
