@@ -9,14 +9,15 @@
          * Login Controller.
          */
         .controller('ViewReminderController', ViewReminder);
-//<script src="TaskPageController.js"></script>//
-    ViewReminder.$inject = ['$state','$filter','ViewReminderDataService'];
+    //<script src="TaskPageController.js"></script>//
+    ViewReminder.$inject = ['$state', '$filter', 'ViewReminderDataService'];
 
-    function ViewReminder($state,$filter,ViewReminderDataService) {
+    function ViewReminder($state, $filter, ViewReminderDataService) {
         var viewReminderVm = this;
         viewReminderVm.getReminderDetails = {};
-         viewReminderVm.getDay = getDay;
+        viewReminderVm.getDay = getDay;
         activate();
+
         function activate() {
             ViewReminderDataService.getReminderDetails().then(function(reminderDetails) {
                 console.log(reminderDetails);
@@ -24,28 +25,39 @@
                 viewReminderVm.getReminderDetails.reminderDescription = reminderDetails.reminderDescription;
                 viewReminderVm.getReminderDetails.reminderDate = reminderDetails.reminderDate;
                 viewReminderVm.getReminderDetails.reminderPriority = reminderDetails.reminderPriority;
+                viewReminderVm.getReminderDetails.reminderDateMilli = reminderDetails.reminderDateMilli;
 
             }).catch(function(error) {
                 // No user details found which means user haven't registered
             });
         }
+
         function getDay() {
-            var a = new Date().getTime();
-         console.log(a); // Now
-            // console.log(a.toString());
-            var b = new Date(viewReminderVm.getReminderDetails.reminderDate);
-            var d = (b - a); 
-            console.log(b);
-             //console.log(111);
-            if (d > 0) {
-                // difference in milliseconds 
-                var oneDay = 24 * 60 * 60 * 1000;
-                var w = parseInt((d / oneDay)+1);
-               // console.log(d / oneDay);
-            } else if (d < 0) {
-               var w=0;
+            var currentDay = new Date().getTime();
+            var reminderDay = viewReminderVm.getReminderDetails.reminderDateMilli;
+            var difference = (reminderDay - currentDay);
+            if (difference > 0) {
+                difference = difference / 1000; //sec
+                if (difference >= 60) {
+                    difference = difference / 60; //min
+                    if (difference >= 60) {
+                        difference = difference / 60; //hr
+                        if (difference >= 24) {
+                            difference = difference / 24; //day
+                            difference = parseInt(difference) + 1 + " days"; //day
+                        } else {
+                            difference = parseInt(difference) + " hour";
+                        }
+                    } else {
+                        difference = parseInt(difference) + " minutes";
+                    }
+                } else {
+                    difference = difference + " seconds";
+                }
+            } else {
+                return "completed";
             }
-            return w;
+            return difference;
         }
 
         // var viewReminder = [{
@@ -68,13 +80,13 @@
         // }];
 
         // viewReminder.tasks = tasks;
-        
-    
+
+
         // function addTask(){
         //     $state.go('header.addtask');
         // }
 
-      //  tasksVm.addTask=addTask;
+        //  tasksVm.addTask=addTask;
 
-}
+    }
 })();

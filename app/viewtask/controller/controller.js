@@ -29,6 +29,8 @@
                 viewTaskVm.getTaskDetails.taskDescription = taskDetails.taskDescription;
                 viewTaskVm.getTaskDetails.taskDate = taskDetails.taskDate;
                 viewTaskVm.getTaskDetails.taskPriority = taskDetails.taskPriority;
+                viewTaskVm.getTaskDetails.taskDateMilli = taskDetails.taskDateMilli;
+
 
             }).catch(function(error) {
                 // No user details found which means user haven't registered
@@ -36,22 +38,31 @@
         }
 
         function getDay() {
-            var a = new Date().getTime();
-           // console.log(a); // Now
-            // console.log(a.toString());
-            var b = new Date(viewTaskVm.getTaskDetails.taskDate);
-            var d = (b - a); 
-            //console.log(b);
-             //console.log(111);
-            if (d > 0) {
-                // difference in milliseconds 
-                var oneDay = 24 * 60 * 60 * 1000;
-                var w = parseInt((d / oneDay)+1);
-               // console.log(d / oneDay);
-            } else if (d < 0) {
-               var w=0;
+            var currentDay = new Date().getTime();
+            var taskDay = viewTaskVm.getTaskDetails.taskDateMilli;
+            var difference = (taskDay - currentDay);
+            if (difference > 0) {
+                difference = difference / 1000; //sec
+                if (difference >= 60) {
+                    difference = difference / 60; //min
+                    if (difference >= 60) {
+                        difference = difference / 60; //hr
+                        if (difference >= 24) {
+                            difference = difference / 24; //day
+                            difference = parseInt(difference) + 1 + " days"; //day
+                        } else {
+                            difference = parseInt(difference) + " hour";
+                        }
+                    } else {
+                        difference = parseInt(difference) + " minutes";
+                    }
+                } else {
+                    difference = difference + " seconds";
+                }
+            } else {
+                return "completed";
             }
-            return w;
+            return difference;
         }
 
 
