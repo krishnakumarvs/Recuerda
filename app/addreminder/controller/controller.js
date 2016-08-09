@@ -24,15 +24,17 @@
             addReminderVm.newReminder = {}
             addReminderVm.newReminder.reminderName = "";
             addReminderVm.newReminder.reminderDate = $filter('date')(new Date(), 'MM/dd/yyyy');
-            console.log(addReminderVm.newReminder.reminderDate);
+            addReminderVm.newReminder.reminderDateMilli = new Date().getTime();
             addReminderVm.newReminder.priorityBar = 50;
             addReminderVm.newReminder.reminderPriority = "medium";
             addReminderVm.newReminder.reminderDescription = "";
+            addReminderVm.newReminder.status=config.generalStatus.created;
 
         }
         var datepickerConfig = {
             callback: function(val) { //Mandatory
                 /*console.log('Return value from the datepicker popup is : ' + val, new Date(val));*/
+                addReminderVm.newReminder.reminderDateMilli=val;
                 addReminderVm.newReminder.reminderDate = $filter('date')(new Date(val), 'dd/MM/yyyy');
             },
             disabledDates: [ //Optional

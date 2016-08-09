@@ -23,7 +23,7 @@
         function activate() {
             addTaskVm.newTask = {}
             addTaskVm.newTask.taskName = "";
-            addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'dd/MM/yyyy');
+            addTaskVm.newTask.taskDate = $filter('date')(new Date(), 'MM/dd/yyyy');
             addTaskVm.newTask.taskDateMilli = new Date().getTime();
             addTaskVm.newTask.taskPriority = config.priority.medium;
             addTaskVm.newTask.priorityBar = 50;
@@ -34,7 +34,10 @@
         var datepickerConfig = {
             callback: function(val) { //Mandatory
                 /*console.log('Return value from the datepicker popup is : ' + val, new Date(val));*/
+                console.log(val);
+                addTaskVm.newTask.taskDateMilli=val;
                 addTaskVm.newTask.taskDate = $filter('date')(new Date(val), 'MM/dd/yyyy');
+
             },
             disabledDates: [ //Optional
                 new Date(2016, 2, 16),
