@@ -78,7 +78,7 @@
                     // could add, do something else
                 });
             } else {
-                alert("enter the details");
+                alert(config.showMessage.enterDetails);
             }
         }
 

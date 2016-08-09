@@ -10,9 +10,9 @@
          */
         .controller('AddReminderController', AddReminder);
 
-    AddReminder.$inject = ['$state', '$filter', 'AddReminderDataService', 'ionicDatePicker'];
+    AddReminder.$inject = ['$state', '$filter', 'AddReminderDataService', 'ionicDatePicker','config'];
 
-    function AddReminder($state, $filter, AddReminderDataService, ionicDatePicker) {
+    function AddReminder($state, $filter, AddReminderDataService, ionicDatePicker,config) {
         var addReminderVm = this;
 
         addReminderVm.priorityChanged = priorityChanged;
@@ -75,7 +75,7 @@
 
                 });
             } else {
-                alert("enter the details");
+                alert(config.showMessage.enterDetails);
             }
         }
 

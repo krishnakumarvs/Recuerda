@@ -30,6 +30,9 @@
         seconds: " seconds",
         completed: " completed"
     };
+    var showMessage = {
+        enterDetails: "Enter the details"
+    };
 
     var firebaseKeys = {
         reminder: "reminder",
@@ -42,7 +45,8 @@
         firebaseKeys: firebaseKeys,
         priority: priority,
         generalStatus: generalStatus,
-        timePeriod: timePeriod
+        timePeriod: timePeriod,
+        showMessage: showMessage
     };
 
     angular.module(appName).value('config', config);
