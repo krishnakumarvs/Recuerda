@@ -10,9 +10,9 @@
          */
         .controller('ViewTaskController', ViewTask);
 
-    ViewTask.$inject = ['$state', '$filter', 'ViewTaskDataService'];
+    ViewTask.$inject = ['$state', '$filter', 'ViewTaskDataService','config'];
 
-    function ViewTask($state, $filter, ViewTaskDataService) {
+    function ViewTask($state, $filter, ViewTaskDataService,config) {
         var viewTaskVm = this;
         viewTaskVm.getTaskDetails = {};
         viewTaskVm.getDay = getDay;
@@ -49,18 +49,18 @@
                         difference = difference / 60; //hr
                         if (difference >= 24) {
                             difference = difference / 24; //day
-                            difference = parseInt(difference) + 1 + " days"; //day
+                            difference = parseInt(difference) + 1 +  config.timePeriod.days; //day
                         } else {
-                            difference = parseInt(difference) + " hour";
+                            difference = parseInt(difference) +  config.timePeriod.hours;
                         }
                     } else {
-                        difference = parseInt(difference) + " minutes";
+                        difference = parseInt(difference) +  config.timePeriod.minutes;
                     }
                 } else {
-                    difference = difference + " seconds";
+                    difference = difference +  config.timePeriod.seconds;
                 }
             } else {
-                return "completed";
+                return  config.timePeriod.completed;
             }
             return difference;
         }

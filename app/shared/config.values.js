@@ -23,6 +23,13 @@
         completed: 1,
         deleted: 2
     };
+    var timePeriod = {
+        days: " days",
+        hours: " hours",
+        minutes: " minutes",
+        seconds: " seconds",
+        completed: " completed"
+    };
 
     var firebaseKeys = {
         reminder: "reminder",
@@ -34,7 +41,8 @@
         localStorageKeys: localStorageKeys,
         firebaseKeys: firebaseKeys,
         priority: priority,
-        generalStatus: generalStatus
+        generalStatus: generalStatus,
+        timePeriod: timePeriod
     };
 
     angular.module(appName).value('config', config);

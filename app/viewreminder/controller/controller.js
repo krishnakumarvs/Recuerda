@@ -10,9 +10,9 @@
          */
         .controller('ViewReminderController', ViewReminder);
     //<script src="TaskPageController.js"></script>//
-    ViewReminder.$inject = ['$state', '$filter', 'ViewReminderDataService'];
+    ViewReminder.$inject = ['$state', '$filter', 'ViewReminderDataService','config'];
 
-    function ViewReminder($state, $filter, ViewReminderDataService) {
+    function ViewReminder($state, $filter, ViewReminderDataService,config) {
         var viewReminderVm = this;
         viewReminderVm.getReminderDetails = {};
         viewReminderVm.getDay = getDay;
@@ -44,18 +44,18 @@
                         difference = difference / 60; //hr
                         if (difference >= 24) {
                             difference = difference / 24; //day
-                            difference = parseInt(difference) + 1 + " days"; //day
+                            difference = parseInt(difference) + 1 + config.timePeriod.days; //day
                         } else {
-                            difference = parseInt(difference) + " hour";
+                            difference = parseInt(difference) + config.timePeriod.hours;
                         }
                     } else {
-                        difference = parseInt(difference) + " minutes";
+                        difference = parseInt(difference) + config.timePeriod.minutes;
                     }
                 } else {
-                    difference = difference + " seconds";
+                    difference = difference + config.timePeriod.seconds;
                 }
             } else {
-                return "completed";
+                return config.timePeriod.completed;
             }
             return difference;
         }
