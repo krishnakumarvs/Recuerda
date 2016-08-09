@@ -22,26 +22,7 @@
                 reminderVm.reminder = allReminders;
             });
         }
-        var reminder = [{
-                name: "Buy apple",
-                date: "today ",
-                description: "hhhkjd hjdk"
-
-            },
-
-            {
-                name: "Get job",
-                date: "tomorrow",
-                description: "hhhkjd hjdk"
-
-
-            }, {
-                name: "Class meeting",
-                date: "6.07.2016",
-                description: "hhhkjd hjdk"
-
-            }
-        ];
+        var reminder = [];
         //reminderVm.reminder = reminder;
 
         function addReminder() {

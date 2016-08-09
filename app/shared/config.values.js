@@ -38,6 +38,10 @@
         reminder: "reminder",
         task: "task"
     };
+    dateFormat = {
+        dateFormat: "dd/MM/yyyy"
+
+    };
 
     var config = {
         uiMessages: uiMessages,
@@ -46,7 +50,8 @@
         priority: priority,
         generalStatus: generalStatus,
         timePeriod: timePeriod,
-        showMessage: showMessage
+        showMessage: showMessage,
+        dateFormat: dateFormat
     };
 
     angular.module(appName).value('config', config);

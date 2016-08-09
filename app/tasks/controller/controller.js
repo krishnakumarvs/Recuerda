@@ -24,24 +24,7 @@
         }
 
 
-        var tasks = [{
-            name: "Buy apple",
-            date: "today ",
-            description: "Etiam sit ametb fbf"
-        }, {
-            name: "book flight tckt",
-            date: "today",
-            description: "Etiam sit amet dfdfd dfrdgtfjh"
-        }, {
-            name: "Get job",
-            date: "tomorrow",
-            description: "Etiam sit amet fgfbf sdfrdfgdv"
-        }, {
-            name: "Marriage function",
-            date: "sunday",
-            description: "Etiam sit amet vfgbftfgh dvdfgdrfgdf"
-
-        }];
+        var tasks = [];
 
         //tasksVm.tasks = tasks;
 

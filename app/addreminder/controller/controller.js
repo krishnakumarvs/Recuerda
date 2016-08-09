@@ -23,10 +23,10 @@
         function activate() {
             addReminderVm.newReminder = {}
             addReminderVm.newReminder.reminderName = "";
-            addReminderVm.newReminder.reminderDate = $filter('date')(new Date(), 'MM/dd/yyyy');
+            addReminderVm.newReminder.reminderDate = $filter('date')(new Date(), config.dateFormat.dateFormat);
             addReminderVm.newReminder.reminderDateMilli = new Date().getTime();
             addReminderVm.newReminder.priorityBar = 50;
-            addReminderVm.newReminder.reminderPriority = "medium";
+            addReminderVm.newReminder.reminderPriority = config.priority.medium;
             addReminderVm.newReminder.reminderDescription = "";
             addReminderVm.newReminder.status=config.generalStatus.created;
 
@@ -35,7 +35,7 @@
             callback: function(val) { //Mandatory
                 /*console.log('Return value from the datepicker popup is : ' + val, new Date(val));*/
                 addReminderVm.newReminder.reminderDateMilli=val;
-                addReminderVm.newReminder.reminderDate = $filter('date')(new Date(val), 'dd/MM/yyyy');
+                addReminderVm.newReminder.reminderDate = $filter('date')(new Date(val), config.dateFormat.dateFormat);
             },
             disabledDates: [ //Optional
                 new Date(2016, 2, 16),
@@ -59,11 +59,11 @@
 
         function priorityChanged() {
             if (addReminderVm.newReminder.priorityBar > 0 && addReminderVm.newReminder.priorityBar <= 35) {
-                addReminderVm.newReminder.reminderPriority = "low";
+                addReminderVm.newReminder.reminderPriority = config.priority.low;
             } else if (addReminderVm.newReminder.priorityBar > 35 && addReminderVm.newReminder.priorityBar <= 70) {
-                addReminderVm.newReminder.reminderPriority = "medium";
+                addReminderVm.newReminder.reminderPriority = config.priority.medium;
             } else if (addReminderVm.newReminder.priorityBar > 70 && addReminderVm.newReminder.priorityBar <= 100) {
-                addReminderVm.newReminder.reminderPriority = "high";
+                addReminderVm.newReminder.reminderPriority = config.priority.high;
             }
         }
 
