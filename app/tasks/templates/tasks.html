@@ -9,15 +9,14 @@
 			  <div class="row">
          	     	<div class="col-20"></div>
          		    <div class="col align-center">
-         			<button class="button button-block button-balanced" ng-click="Tasks.addTask()" ng-init="count=0"> NEW TASK
-         			</button> 
+         				<button class="button button-block button-balanced" ng-click="Tasks.addTask()" ng-init="count=0"> NEW TASK
+         				</button> 
          			</div>
          			<div class="col-20"></div>
          		</div>
 				<ul class="list" >
             		<li class="item border" ng-repeat="item in Tasks.tasks"> 
 		            	<div class="row task-style"ng-click="Tasks.GotoViewTask(item)">
-		            		
 		            		<div class="col-15"><img src="img/clock.png" class="clock" /></div>
 				           	<div class="col color-change">{{item.taskDate}}</div>
 				           	<div class="col-50">
@@ -27,8 +26,8 @@
 		            			<div class="row">
 		            				<div class="col color-change">{{item.taskDescription}}</div>
 		            			</div>
-		            			<div class="col" ng-class="{'red':(item.taskPriority=='high'),'red-lighter':(item.taskPriority=='medium'),'verylighter':(item.taskPriority=='low')}"></div>
-								
+		            			<div class="col" ng-class="{'red':(item.taskPriority=='high'),'red-lighter':(item.taskPriority=='medium'),'verylighter':(item.taskPriority=='low')}">
+		            			</div>
 		            		</div>
 		    		   	</div>
 		           	</li>
