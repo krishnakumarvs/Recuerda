@@ -51,7 +51,7 @@
             inputDate: new Date(), //Optional
             mondayFirst: true, //Optional
             disableWeekdays: [0], //Optional
-            closeOnSelect: true, //Optional
+            closeOnSelect: false, //Optional
             templateType: 'popup' //Optional
         };
 

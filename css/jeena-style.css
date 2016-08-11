@@ -198,6 +198,7 @@ col-20.text-align-center.color-change.margin-top-10.ng-binding {
     }
 .item-select:after{
      color: #009688;
+         right: 6px;
 }
 .row.weeks_row {
     font-weight: bold;
@@ -236,3 +237,23 @@ col-20.text-align-center.color-change.margin-top-10.ng-binding {
     margin-right: 7px;
     border-width: 1.5px;
 }
+.item-select select {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 65%;
+    border: none;
+    background: #fff;
+    color: black;
+}
+.month_select select, .ionic_datepicker_popup .popup-body .year_select select {
+    left: 0px;
+    border: none;
+    padding: 0;
+}
+ .popup-body .year_select select {
+    left: 10px;
+    border: none;
+    padding: 0;
+}
+
