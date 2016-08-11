@@ -32,6 +32,7 @@ border-color:#c4e68c;
 button.button.button-block.button-royal.button-facebook{
 	color: white;
 	background-color: #3c599f;
+	border-color: #3c599f;
 }
 
 
@@ -170,4 +171,68 @@ col-20.text-align-center.color-change.margin-top-10.ng-binding {
 }
 .task-name{
 	padding: 0;
+}
+.popup-body .selected_date_full {
+    background-color: #019688;
+    margin: -10px -10px 0 -10px;
+    height: 45px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    line-height: 45px;
+    font-size: 18px;
+}
+.popup-head {
+     padding: 0px !important;
+    margin-top: 0px !important;
+}
+.popup-body .button-clear {
+    color: #009688;
+}
+.popup-body .select_section {
+    padding: 1px 5px;
+}
+.popup-body .year_select:after {
+    right: 5px;
+    color: #009688;
+    }
+.item-select:after{
+     color: #009688;
+}
+.row.weeks_row {
+    font-weight: bold;
+    color: black;
+}
+.padding_zero {
+    padding-top: 0;
+    color: black;
+}
+.popup-buttons {
+    padding: 0;
+    min-height: 45px;
+}
+.popup-buttons button {
+    background-color: #009688;
+    border-radius: 0;
+    margin-right: 1px;
+    color: #ffffff;
+    margin-right: 0px;
+}
+.popup-buttons .button {  
+    margin-right: 0px!important;
+}
+.item h3, h3 {
+    margin: 0px !important;
+}
+.selected_date {
+    background-color: #009688;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+}
+.border-line{
+	border-left: rgba(244,244,244,1);
+    border-left-style: solid;
+    margin-right: 7px;
+    border-width: 1.5px;
 }
