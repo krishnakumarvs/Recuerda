@@ -30,6 +30,7 @@ border-color:#c4e68c;
 	color: white;
 }
 button.button.button-block.button-royal.button-facebook{
+    box-shadow: 2px 6px 4px #333;
 	color: white;
 	background-color: #3c599f;
 	border-color: #3c599f;
